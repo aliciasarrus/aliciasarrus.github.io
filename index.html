@@ -631,7 +631,7 @@ MOI MÊME
         const padB = parseFloat(cs.paddingBottom) || 0;
         const aw = (desktop.clientWidth  || window.innerWidth)  - padL - padR;
         const ah = (desktop.clientHeight || window.innerHeight) - padT - padB;
-        const size = Math.round(Math.max(40, Math.min(56, aw * 0.13)));
+        const size = Math.round(Math.max(52, Math.min(72, aw * 0.175)));
         M = { padL, padT, aw, ah, size };
       }
 
@@ -686,6 +686,7 @@ MOI MÊME
 
         icon.addEventListener("click", () => {
           if(isMobile()){
+            if(icon._moved){ icon._moved = false; return; }   /* glissement : pas d'ouverture */
             if(it.kind === "folder") openFinder(it.category, it.name);
             else openProjectWindow(it.id);
             return;
@@ -702,7 +703,44 @@ MOI MÊME
           });
         }
 
-        // Drag uniquement desktop
+        // Drag au doigt sur mobile (un simple tap ouvre toujours le projet)
+        if(isMobile()){
+          let st = null;
+          icon.addEventListener("pointerdown", (e) => {
+            const drect = desktop.getBoundingClientRect();
+            const rect  = icon.getBoundingClientRect();
+            st = { sx: e.clientX, sy: e.clientY, grabX: e.clientX - rect.left, grabY: e.clientY - rect.top, drect, on: false };
+            icon._moved = false;
+          });
+          icon.addEventListener("pointermove", (e) => {
+            if(!st) return;
+            if(!st.on){
+              if(Math.hypot(e.clientX - st.sx, e.clientY - st.sy) < 8) return;
+              st.on = true;
+              icon._moved = true;
+              bringFront(icon);
+              icon.classList.add("is-dragging");
+              try{ icon.setPointerCapture(e.pointerId); }catch(_){}
+            }
+            const maxX = st.drect.width  - icon.offsetWidth  - 4;
+            const maxY = st.drect.height - icon.offsetHeight - 4;
+            const nx = Math.max(4, Math.min((e.clientX - st.drect.left) - st.grabX, maxX));
+            const ny = Math.max(4, Math.min((e.clientY - st.drect.top)  - st.grabY, maxY));
+            icon.style.left = Math.round(nx) + "px";
+            icon.style.top  = Math.round(ny) + "px";
+          });
+          const end = (e) => {
+            if(!st) return;
+            icon.classList.remove("is-dragging");
+            try{ icon.releasePointerCapture(e.pointerId); }catch(_){}
+            st = null;
+            if(icon._moved) setTimeout(() => { icon._moved = false; }, 0);
+          };
+          icon.addEventListener("pointerup", end);
+          icon.addEventListener("pointercancel", end);
+        }
+
+        // Drag desktop
         if(!isMobile()){
           icon.addEventListener("pointerdown", (e) => {
             if(e.button !== 0) return;
