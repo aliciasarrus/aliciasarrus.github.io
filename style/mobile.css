@@ -1,369 +1,152 @@
-@media (max-width: 768px){
-  html, body{
-    font-weight: 400;            /* ou 500 si tu veux plus “gras” */
-    -webkit-text-size-adjust: 100%;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-  }
+/* ==========================================================
+MOBILE
+(chargé après style.css : tout est préfixé html.is-mobile,
+le desktop n'est pas touché)
+========================================================== */
 
-  /* si tu utilises une font custom, force aussi sur les boutons */
-  button, .tab, .filter{
-    font-weight: 400;
-  }
+/* Le bloc texte mobile existe dans le HTML mais reste caché sur desktop */
+.mtext{ display: none; }
 
-  /* ton texte principal */
-  p, .infos, .cover-meta, .home__events__title{
-    font-weight: 400;
-  }
+/* --- Accueil : tous les projets ensemble, petits, SANS scroll --- */
+html.is-mobile .desktop{
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+html.is-mobile .icon{
+  touch-action: manipulation;
+  padding: 3px 2px;
+  gap: 4px;
+}
+html.is-mobile .icon .thumb{
+  width: var(--ts, 52px);
+  height: var(--ts, 52px);
+}
+html.is-mobile .icon[data-kind="file"] .label{
+  font-size: 10px;
+  line-height: 1.1;
+  letter-spacing: .02em;
 }
 
-
-
-/* DESKTOP: on n'affiche pas les covers mobile */
-.project-cover{ display:none; }
-
-
-
-/* =========================================
-   MOBILE (<= 768px) — CLEAN (FIXED)
-   ========================================= */
-@media (max-width: 768px){
-  .project-cover{ display:block; }
-
-
-  /* neutralise le responsive desktop */
-  #work{
-    height:auto !important;
-    overflow:visible !important;
-    display:block !important;
-  }
-
-  #container{ padding: 10px !important; }
-
-  /* =========================
-     HEADER
-     ========================= */
-  #header{
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 9999 !important;
-    background: #fff !important;
-    margin: 0 0 10px 0 !important;
-    display:flex !important;
-    align-items: baseline !important;
-    gap: 12px !important;
-  }
-
-  /* cache ce que tu ne veux pas */
-  #about-btn,
-  .header__burger,
-  .header__responsive{
-    display:none !important;
-  }
-
-  .top-tabs{
-    display:flex !important;
-    align-items: baseline !important;
-    gap: 14px !important;
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-  }
-
-  .top-tabs .tab{
-    appearance:none;
-    border:0;
-    background:transparent;
-    padding:0;
-    font: inherit;
-    font-size: 14px;
-    line-height: 1;
-    cursor:pointer;
-  }
-  .top-tabs .tab:not(.is-active){ color:#aaa; }
-  .top-tabs .tab.is-active{
-    text-decoration: underline;
-    text-underline-offset: 6px;
-  }
-
-  .filters{
-    display:none; /* affiché via JS */
-    gap: 10px;
-    margin-left: 6px;
-    flex-wrap: wrap;
-  }
-  .filters .filter{
-    appearance:none;
-    border:0;
-    background:transparent;
-    padding:0;
-    font: inherit;
-    font-size: 14px;
-    line-height: 1;
-    cursor:pointer;
-    color:#bbb;
-  }
-  .filters .filter.is-active{
-    color:#000;
-    text-decoration: underline;
-    text-underline-offset: 6px;
-  }
-
-  /* =========================
-     VUES
-     ========================= */
-  body.view-home #projects{ display:none !important; }
-  body.view-home #stage{ display:block !important; }
-
-  body.view-projects #stage{ display:none !important; }
-  body.view-projects #projects{ display:block !important; }
-
-  /* =========================
-     HOME (DJ)
-     ========================= */
-  #stage{
-    width: 100% !important;
-    height: auto !important;
-    position: relative !important;
-  }
-
-  #dj-intro{
-    margin: 14px 0 12px 0 !important;
-    font-size: 13px !important;
-    line-height: 1.25 !important;
-    max-width: 44ch !important;
-  }
-
-  #dj-ui{
-    position: relative !important;
-    inset: auto !important;
-    display:block !important;
-    padding-right: 60px !important; /* place colonne droite */
-  }
-
-  #dj-top{
-    position: static !important;
-    width: auto !important;
-    transform:none !important;
-    margin: 0 0 10px 0 !important;
-    display:block !important;
-  }
-
-  /* “À toi de jouer” — vertical à droite */
-  #dj-title{
-    position: fixed !important;
-    right: 8px !important;
-    top: 34vh !important;
-    margin: 0 !important;
-    font-size: 14px !important;
-    white-space: nowrap !important;
-    transform: rotate(90deg) !important;
-    transform-origin: right top !important;
-    z-index: 9998 !important;
-    pointer-events: none !important;
-  }
-
-  /* MUTE/PLAY — vertical à droite */
-  #sound-toggle{
-    position: fixed !important;
-    right: 8px !important;
-    top: 58vh !important;
-    z-index: 9998 !important;
-
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-
-    transform: rotate(90deg) !important;
-    transform-origin: right top !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 0 !important;
-  }
-
-  /* pas de texte ajouté */
-  #sound-toggle::after{
-    content: none !important;
-  }
-
-  /* SVG bien visible */
-  #sound-toggle svg{
-    display: block !important;
-    width: 70px !important;   /* ajuste 60–90 si tu veux */
-    height: auto !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  /* grille CDs */
-  #dj-grid{
-    transform:none !important;
-    padding: 0 !important;
-    display:grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 18px 18px !important;
-    justify-items: center !important;
-    align-content: start !important;
-  }
-
-  .cd{
-    width: min(46vw, 190px) !important;
-    max-width: 190px !important;
-  }
-
-  #dj-tooltip{ display:none !important; }
-  #images{ display:none !important; }
-
-  /* footer */
-  #links{
-    position: fixed !important;
-    left: 10px !important;
-    bottom: 10px !important;
-    z-index: 9997 !important;
-    margin: 0 !important;
-  }
-
-  #links .infos{
-    font-size: 14px !important;
-    line-height: 1.15 !important;
-  }
-
-  /* projets */
-  #projects{
-    width: 100% !important;
-    margin-top: 10px !important;
-  }
-
-  .home__events__title{ font-size: 16px !important; }
-
-  .flex{ display:block !important; }
-  .description{ width: 100% !important; }
-
-  p.text__1, p.text__2{
-    width: 100% !important;
-    margin: 10px 0 !important;
-  }
-
-  .images__responsive{
-    display:block !important;
-    width: 100% !important;
-    margin: 10px 0 12px 0 !important;
-  }
-
-  .images__responsive img,
-  .images__responsive video{
-    width: 100% !important;
-    height: auto !important;
-    display:block !important;
-    margin: 0 0 10px 0 !important;
-  }
+/* --- Fenêtre projet : la hauteur s'adapte au contenu (texte + médias) ---
+   Courte s'il y a peu de médias, plafonnée à l'écran sinon (et là on scrolle dedans). */
+html.is-mobile .window.projectWin.show{
+  display: flex !important;
+  flex-direction: column;
+  height: auto !important;
+  max-height: calc(100vh - var(--menuH) - var(--safeTop) - var(--safeBot) - 30px) !important;
+  max-height: calc(100dvh - var(--menuH) - var(--safeTop) - var(--safeBot) - 30px) !important;
 }
+html.is-mobile .window.projectWin .titlebar{ flex: 0 0 auto; }
 
-@media (max-width: 768px) {
+html.is-mobile .projectWin .win-body{
+  position: static !important;
+  flex: 0 1 auto;
+  min-height: 0;
+  margin: 0 8px 8px;
+  height: auto !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  container-type: normal !important;     /* sinon la hauteur ne peut pas suivre le contenu */
 
-/* ====== PROJECTS as COVERS (mobile) ====== */
-
-/* on masque la "liste" (les h3) sur mobile */
-body.view-projects .home__events__title{
-  display:none !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scrollbar-width: none;
 }
+html.is-mobile .projectWin .win-body::-webkit-scrollbar{ display: none; }
 
-/* le panel est caché tant que non ouvert */
-body.view-projects .panel{
-  display:none !important;
-}
-body.view-projects .panel.active{
-  display:block !important;
-}
+/* --- Texte : plus de bulle, un bloc arrondi au-dessus des médias --- */
+html.is-mobile .projectWin .bzone,
+html.is-mobile .projectWin .pshield,
+html.is-mobile .projectWin .pdots{ display: none !important; }
 
-/* cover bloc */
-.project-cover{
-  width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  text-align: left;
+html.is-mobile .projectWin .mtext{
   display: block;
-  cursor: pointer;
-  margin: 0 0 14px 0;
+  flex: 0 0 auto;
+  padding: 16px 16px 18px;
+  border-radius: 18px;
+  background: rgba(246,246,246,.97);
+}
+html.is-mobile .projectWin .mtext .b-meta{
+  font-size: 11.5px;
+  line-height: 1.25;
+  color: rgba(0,0,0,.45);
+  margin-bottom: 12px;
+}
+html.is-mobile .projectWin .mtext .b-desc{
+  font-size: 14.5px;
+  line-height: 1.32;
+  color: #000;
+}
+html.is-mobile .projectWin .mtext .desc-links{ margin-top: 12px; }
+
+/* --- Médias : empilés, en entier, sans recadrage --- */
+html.is-mobile .projectWin .pmedia{
+  position: static !important;
+  inset: auto !important;
+  flex: 0 0 auto;
+  overflow: visible !important;
+  container-type: normal !important;
+  scroll-snap-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.project-cover .cover-media{
-  display:block;
-  width:100%;
-  aspect-ratio: 16 / 9;   /* ajuste si tu veux plus carré */
-  overflow:hidden;
-  background:#000;
+html.is-mobile .projectWin .pmedia .slide{
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  scroll-snap-align: none;
+  background: #000;
+}
+html.is-mobile .projectWin .pmedia .slide.light{ background: #fff; }
+
+html.is-mobile .projectWin .pmedia .slide img{
+  position: static !important;
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  object-fit: contain !important;
 }
 
-.project-cover .cover-media img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
+/* vidéos : au bon format (--ar est mesuré par le lecteur Vimeo) */
+html.is-mobile .projectWin .pmedia .video{
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: var(--ar, 1.7778) !important;
+}
+html.is-mobile .projectWin .pmedia .video.vimeo iframe{
+  position: absolute !important;
+  inset: 0 !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+}
+html.is-mobile .projectWin .pmedia .yt-facade{
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+}
+html.is-mobile .projectWin .pmedia video.v{
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: none !important;
 }
 
-/* texte sous la cover (ou tu peux le mettre en overlay si tu veux) */
-.project-cover .cover-meta{
-  display:flex;
-  gap: 10px;
-  align-items: baseline;
-  padding: 8px 0 0 0;
-  font-size: 16px;
-}
+/* barre de contrôle vidéo plus compacte sur petit écran */
+html.is-mobile .projectWin .vbar{ width: calc(100% - 20px); bottom: 8px; gap: 5px; padding: 0 8px; }
+html.is-mobile .projectWin .vvol{ display: none; }
 
-.project-cover .cover-meta .categorie{
-  color:#777;
-}
-.project-cover .cover-meta .date{
-  margin-left:auto;
-  color:#777;
-}
-/* gros espace après un projet ouvert */
-body.view-projects .project-cover[aria-expanded="true"]{
-  margin-bottom: 30px !important;  /* espace entre cover et panel (optionnel) */
-}
-
-/* espace sous le contenu déployé avant le prochain projet */
-body.view-projects .panel.active{
-  margin-bottom: 60px !important;  /* <-- augmente ici si tu veux encore plus */
-  padding-bottom: 0 !important;
-}
-.project-cover .cover-media{
-  display:block;
-  width:100%;
-  aspect-ratio: 16 / 9;
-  overflow:hidden;
-  background:#000;
-}
-
-/* ✅ vidéo miniature */
-.project-cover .cover-media .cover-video{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-}
-
-/* option : enlever toute interaction sur la vidéo (clic = bouton) */
-.project-cover .cover-media .cover-video{
-  pointer-events:none;
-}
-
-  /* ... tes règles ... */
-
-  /* ✅ Sur Projets : on cache le bouton mute/play (et éventuellement le titre) */
-  body.view-projects #sound-toggle,
-  body.view-projects #dj-title{
-    display: none !important;
-  }
-
-  /* ✅ Sur Home : on les affiche */
-  body.view-home #sound-toggle,
-  body.view-home #dj-title{
-    display: inline-flex !important;
-  }
-}
-
-
+/* le slide DJ garde une hauteur fixe (c'est un jeu, pas une vidéo) */
+html.is-mobile .projectWin .pmedia .slide.dj-slide{
+  height: min(70dvh, 520px) !important;
+  display: block !important;
 }
