@@ -1,0 +1,2017 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <link rel="stylesheet" href="style/reset.css" />
+  <link rel="stylesheet" href="style/style.css?v=9" />
+  <link rel="icon" type="image/png" href="import/favicon.png" />
+  <link rel="apple-touch-icon" href="import/favicon.png" />
+
+  <title>aliciasarrus portfolio</title>
+
+  <script src="https://player.vimeo.com/api/player.js"></script>
+</head>
+
+<body>
+
+
+ <!-- DEVELLOPÉ PAR
+
+   ###    ##       ####  ######  ####    ###    
+  ## ##   ##        ##  ##    ##  ##    ## ##   
+ ##   ##  ##        ##  ##        ##   ##   ##  
+##     ## ##        ##  ##        ##  ##     ## 
+######### ##        ##  ##        ##  ######### 
+##     ## ##        ##  ##    ##  ##  ##     ## 
+##     ## ######## ####  ######  #### ##     ## 
+
+MOI MÊME
+-->
+
+  <!-- =========================
+       MENU BAR
+       ========================= -->
+  <div class="menubar">
+  </div>
+
+  <!-- =========================
+       DESKTOP
+       ========================= -->
+  <div class="desktop" id="desktop"></div>
+
+  <!-- =========================
+       DOCK
+       ========================= -->
+  <div class="dock-wrap">
+    <div class="dock" id="dock">
+
+      <!-- Groupe 1 -->
+      <div class="dock-item" data-action="reset" title="Reset">
+        <img class="dock-img" src="import/dock/rest.png" alt="">
+        <span class="dot" aria-hidden="true"></span>
+      </div>
+
+      <div class="dock-item" data-action="about" title="À propos">
+        <img class="dock-img" src="import/dock/terminal.png" alt="">
+        <span class="dot" aria-hidden="true"></span>
+      </div>
+
+      <div class="dock-item" data-action="dj" title="DJ">
+        <img class="dock-img" src="import/dock/cdd.png" alt="">
+        <span class="dot" aria-hidden="true"></span>
+      </div>
+
+      <div class="dock-sep" aria-hidden="true"></div>
+
+      <!-- Groupe 2 -->
+      <div class="dock-item dock-photo" data-action="go-install" title="à propos">
+        <img class="dock-img" src="import/dock/note.png" alt="">
+        <span class="dot" aria-hidden="true"></span>
+      </div>
+
+      <div class="dock-item dock-photo" data-action="link-1" title="playlist">
+        <img class="dock-img" src="import/dock/music.png" alt="">
+        <span class="dot" aria-hidden="true"></span>
+      </div>
+
+      <div class="dock-sep" aria-hidden="true"></div>
+
+      <!-- Groupe 3 -->
+      <a
+        href="https://www.instagram.com/aliciasarrus/"
+        target="_blank"
+        class="dock-item dock-photo"
+        title="Instagram"
+        rel="noopener"
+      >
+        <img class="dock-img" src="import/dock/insta.png" alt="Instagram">
+      </a>
+
+      <a href="mailto:aliciasarrus@gmail.com" class="dock-item dock-photo" title="Mail">
+        <img class="dock-img" src="import/dock/mail.png" alt="Mail">
+      </a>
+
+      <div class="dock-sep" aria-hidden="true"></div>
+
+      <!-- Groupe 4 -->
+      <div class="dock-item dock-photo" data-action="trash" title="Poubelle">
+        <img class="dock-img" src="import/dock/pb.png" alt="Poubelle">
+        <span class="dot" aria-hidden="true"></span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================
+       WINDOW : INFO (TEMPLATE)
+       ========================= -->
+  <div class="window" id="infoWin" role="dialog" aria-modal="true" data-max="0">
+    <div class="titlebar" id="infoBar">
+      <div class="traffic">
+        <div class="dotbtn red" id="btnCloseInfo" title="Fermer"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></div>
+        <div class="dotbtn yellow" id="btnMinInfo" title="Minimiser"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7h9"/></svg></div>
+        <div class="dotbtn green" id="btnMaxInfo" title="Plein écran"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5h7l-7 7z" fill="#fff" stroke="none"/><path d="M11.5 4.5v7h-7z" fill="#fff" stroke="none"/></svg></div>
+      </div>
+    </div>
+    <div class="win-body" id="infoBody"></div>
+  </div>
+
+  <!-- =========================
+       WINDOW : FINDER
+       ========================= -->
+  <div class="window" id="finderWin" role="dialog" aria-modal="true" data-max="0">
+    <div class="titlebar" id="finderBar">
+      <div class="traffic">
+        <div class="dotbtn red" id="btnCloseFinder" title="Fermer"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></div>
+        <div class="dotbtn yellow" id="btnMinFinder" title="Minimiser"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7h9"/></svg></div>
+        <div class="dotbtn green" id="btnMaxFinder" title="Plein écran (fake)"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5h7l-7 7z" fill="#fff" stroke="none"/><path d="M11.5 4.5v7h-7z" fill="#fff" stroke="none"/></svg></div>
+      </div>
+      <div class="wtitle" id="finderTitle">—</div>
+    </div>
+
+    <div class="finder-body">
+      <div class="finder-toolbar">
+        <div class="finder-path" id="finderPath">—</div>
+      </div>
+
+      <div class="finder-list" id="finderList">
+        <div class="finder-header">
+          <div class="col-nom">Nom<svg class="sort" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 5l4-4 4 4"/></svg></div>
+          <div>Date de modification</div>
+          <div class="col-type">Type</div>
+        </div>
+        <div id="finderRows"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       WINDOW : DJ
+       ========================= -->
+  <div id="djWin" class="window" data-max="0">
+    <div id="djBar" class="titlebar">
+      <div class="traffic">
+        <button id="btnCloseDJ" class="dotbtn red" title="Fermer"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></button>
+        <button id="btnMinDJ" class="dotbtn yellow" title="Minimiser"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7h9"/></svg></button>
+        <button id="btnMaxDJ" class="dotbtn green" title="Plein écran (fake)"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5h7l-7 7z" fill="#fff" stroke="none"/><path d="M11.5 4.5v7h-7z" fill="#fff" stroke="none"/></svg></button>
+      </div>
+      <div class="wtitle">DJ - clique sur les cd</div>
+    </div>
+
+    <div class="dj-body">
+      <div id="dj-ui">
+        <div id="dj-top"></div>
+
+        <div id="dj-grid">
+          <button class="cd" type="button"><img src="import/cd/cd-01.png" alt=""></button>
+          <button class="cd" type="button"><img src="import/cd/cd-02.png" alt=""></button>
+          <button class="cd" type="button"><img src="import/cd/cd-03.png" alt=""></button>
+          <button class="cd" type="button"><img src="import/cd/cd-04.png" alt=""></button>
+          <button class="cd" type="button"><img src="import/cd/cd-05.png" alt=""></button>
+          <button class="cd" type="button"><img src="import/cd/cd-06.png" alt=""></button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+       WINDOW : TERMINAL (EXPLICATION)
+       ============================== -->
+  <div id="termWin" class="window" data-max="0" role="dialog" aria-modal="true">
+    <div id="termBar" class="titlebar">
+      <div class="traffic">
+        <button id="btnCloseTerm" class="dotbtn red" title="Fermer"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></button>
+        <button id="btnMinTerm" class="dotbtn yellow" title="Minimiser"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7h9"/></svg></button>
+        <button id="btnMaxTerm" class="dotbtn green" title="Plein écran (fake)"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5h7l-7 7z" fill="#fff" stroke="none"/><path d="M11.5 4.5v7h-7z" fill="#fff" stroke="none"/></svg></button>
+      </div>
+      <div class="wtitle">Terminal - Bienvenue</div>
+    </div>
+
+    <div class="term-body">
+      <pre class="term-text"><span class="term-muted">Last login: Mon Feb 23 16:21:07 on ttys000
+      aliciasarrus@MacBook-Pro-de-Alicia ~ % cd /Users/aliciasarrus/Documents/siteweb</span>
+      Bienvenue dans mon portfolio.
+      Doubleclick sur les fichiers et les dossiers pour les ouvrir.
+      Dans l'app DJ, n'hésite pas à jouer sur mon son.
+
+      Codé par moi-même en JavaScript / HTML / CSS.</pre>
+    </div>
+  </div>
+
+  <!-- =========================
+       WINDOW : NOTES
+       ========================= -->
+  <div id="notesWin" class="window" data-max="0" role="dialog" aria-modal="true">
+    <div id="notesBar" class="titlebar">
+      <div class="traffic">
+        <button id="btnCloseNotes" class="dotbtn red" title="Fermer"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></button>
+        <button id="btnMinNotes" class="dotbtn yellow" title="Minimiser"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7h9"/></svg></button>
+        <button id="btnMaxNotes" class="dotbtn green" title="Plein écran (fake)"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5h7l-7 7z" fill="#fff" stroke="none"/><path d="M11.5 4.5v7h-7z" fill="#fff" stroke="none"/></svg></button>
+      </div>
+      <div class="wtitle">Notes</div>
+    </div>
+
+    <div class="notes-body">
+      <div class="notes-sidebar">
+        <button class="notes-side-item" id="openAboutNote" type="button">
+          <span class="ns-ico"></span>
+          <span class="ns-title">Notes</span>
+          <span class="ns-count">520</span>
+        </button>
+      </div>
+
+      <div class="notes-content" id="notesContent">
+        <h2 class="notes-h">Notes</h2>
+        <div class="notes-text">
+          Étudiante en Master 1 au DSAA Numérique de l’ENSAAMA à Paris, ma pratique s’inscrit à la croisée du design graphique, du son et du mouvement. 
+          Je suis Alicia Sarrus et le son occupe une place centrale dans mon travail. Je m’intéresse aux dispositifs interactifs, aux narrations sensibles 
+          et aux systèmes graphiques en mouvement.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       WINDOW : MUSIC
+       ========================= -->
+  <div id="musicWin" class="window" data-max="0" role="dialog" aria-modal="true">
+    <div id="musicBar" class="titlebar">
+      <div class="traffic">
+        <button id="btnCloseMusic" class="dotbtn red" title="Fermer"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></button>
+        <button id="btnMinMusic" class="dotbtn yellow" title="Minimiser"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7h9"/></svg></button>
+        <button id="btnMaxMusic" class="dotbtn green" title="Plein écran (fake)"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5h7l-7 7z" fill="#fff" stroke="none"/><path d="M11.5 4.5v7h-7z" fill="#fff" stroke="none"/></svg></button>
+      </div>
+      <div class="wtitle">Playlist des sons de mes projets</div>
+    </div>
+
+    <div class="music-body">
+      <div class="music-list" id="musicListWrap">
+        <div class="finder-header">
+          <div class="col-nom">Nom<svg class="sort" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 5l4-4 4 4"/></svg></div>
+        </div>
+        <div id="musicList"></div>
+      </div>
+
+      <audio id="musicAudio" preload="metadata"></audio>
+    </div>
+  </div>
+
+  <div id="images"></div>
+
+  <!-- =========================
+       SCRIPT
+       ========================= -->
+  <script>
+    /* =========================
+       HELPERS / SELECTORS
+       ========================= */
+    const $  = (s, el = document) => el.querySelector(s);
+    const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
+
+    const desktop = $("#desktop");
+    const dock    = $("#dock");
+
+    const LS_POS  = "whiteDesk.positions.finder.v5";
+
+    const isMobile = () => matchMedia("(max-width: 768px)").matches;
+
+    function applyMobileClass(){
+      document.documentElement.classList.toggle("is-mobile", isMobile());
+    }
+    applyMobileClass();
+    window.addEventListener("resize", applyMobileClass);
+    window.addEventListener("orientationchange", applyMobileClass);
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    /* =========================
+       Z-INDEX (BRING FRONT)
+       ========================= */
+    let topZ = 6000;
+
+    function syncZBase(){
+      topZ = isMobile() ? 11000 : 6000;
+    }
+    syncZBase();
+    window.addEventListener("resize", syncZBase);
+    window.addEventListener("orientationchange", syncZBase);
+
+    function bringFront(el){
+      if(!el) return;
+      topZ += 1;
+      el.style.zIndex = topZ;
+    }
+
+    /* =========================
+       FOLDER SVG ILLUSTRATOR
+       ========================= */
+    const FOLDER_SVG = `<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 69.36 53.07">
+  <defs>
+    <style>
+      .cls-1 { fill: none; }
+      .cls-2 { fill: #5da9db; }
+      .cls-3 { clip-path: url(#clippath-1); }
+      .cls-4 { fill: #fff; }
+      .cls-5 { clip-path: url(#clippath); }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="5" y="9.36" width="59.36" height="38.71" rx="3.44" ry="3.44"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-1" x="0" y="4.36" width="69.36" height="48.71"/>
+    </clipPath>
+  </defs>
+  <path class="cls-2" d="M60.92,38.89H8.44c-1.9,0-3.44-1.54-3.44-3.44V3.62C5,1.72,6.54.18,8.44.18c12.19,0,13.6-.64,15.59.5.85.48,1.38.87,1.78,1.21.72.62.71.76,1.41,1.34.48.39.9.67,1.19.85,10.83.09,21.67.19,32.5.28.3,0,1.5.08,2.43,1.01.58.58.8,1.23.85,1.4.13.42.16.78.16,1.03v27.64c0,1.9-1.54,3.44-3.44,3.44Z"/>
+  <rect class="cls-4" x="7.56" y="7.1" width="54.25" height="27.4" rx="1.77" ry="1.77"/>
+  <g class="cls-5">
+    <g class="cls-3">
+      <image width="146" height="102" transform="translate(-.28 4.2) scale(.48)" xlink:href="data:image/png;base64,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"/>
+    </g>
+  </g>
+</svg>`;
+
+    /* =========================
+       DONNÉES
+       ========================= */
+    const folders = [
+      { id: "folder-edition", kind: "folder", name: "édition", category: "edition" },
+      { id: "folder-motion",  kind: "folder", name: "motion",  category: "motion"  },
+      { id: "folder-prog",    kind: "folder", name: "prog",    category: "prog"    },
+      { id: "folder-son",     kind: "folder", name: "son",     category: "son"     }
+    ];
+
+    const SHOWREEL_THUMB = "data:image/svg+xml;utf8," + encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#111"/><path d="M40 30 L72 50 L40 70 Z" fill="#fff"/></svg>'
+    );
+
+    const projects = [
+      {
+        id: "sh-001",
+        category: "motion",
+        name: "SHOWREEL",
+        modified: "10 nov. 2026",
+        type: "motion",
+        projet: "perso",
+        thumb: SHOWREEL_THUMB,
+        author: "Alicia",
+        desc: "projet en cours",
+        media: []
+      },
+      {
+        id: "dj-001",
+        category: "prog",
+        name: "DJGAME",
+        modified: "10 nov. 2026",
+        type: "programmation/son",
+        projet: "perso",
+        thumb: "import/djgame/icon.png",
+        author: "Alicia",
+        desc: "Dans une volonté de créer une interaction avec l’utilisateur et d’aller au-delà d’une simple écoute, mon portfolio propose une page CD interactive sous forme de mini jeu de DJ. Ma musique y est décomposée en 6 sons : chaque pression sur un CD déclenche un élément, et lorsque tous sont activés, la composition complète se révèle, tout en laissant la liberté de jouer et recomposer l’instrumentale dans l’ordre souhaité.",
+        media: [
+          { kind: "dj" }
+        ]
+      },
+      {
+        id: "ed-001",
+        category: ["son", "edition"],
+        name: "BALLON DE FEU",
+        modified: "05 mars. 2025",
+        type: "édition augmentée",
+        projet: "école",
+        thumb: "import/editionaugmente/icon.png",
+        author: "Alicia",
+        desc: "Il s’agit ici d’une réédition de la nouvelle « Les Ballons de feu », tirée des Chroniques martiennes de Ray Bradbury, édition contenant une augmentation numérique au récit. Mon intention a été de traduire visuellement l’obscurantisme humain face à une entité supérieure. J’aime jouer avec la matérialité de l’objet livre en mettant en scène un contraste constant entre obscurité et lumière. L’ouvrage intègre également une dimension numérique, qui, une fois scannés révèlent des animations accompagnées d’une dimension sonore. Ces bandes sonores sont originales et composées par moi, afin d’accentuer l’atmosphère contemplative et énigmatique du récit.",
+        media: [
+          { kind: "video", src: "https://vimeo.com/1167912362?fl=tl&fe=ec", keep: true, gif: true },
+          { kind: "video", src: "https://vimeo.com/1167912438?fl=tl&fe=ec", keep: true },
+          { kind: "image", src: "import/editionaugmente/photoenea.png" },
+          { kind: "image", src: "import/editionaugmente/num.png", keep: true }
+        ]
+      },
+      {
+        id: "ed-002",
+        category: "edition",
+        name: "mémoire",
+        modified: "08 janvier. 2026",
+        type: "recherche",
+        projet: "école",
+        thumb: "import/memoire/icon.png",
+        author: "Alicia",
+        desc: "Le son dans les interfaces numériques apparaît souvent comme un élément optionnel. L’étude d’interfaces expérimentales, notamment issues de l’IRCAM et d’autres laboratoires de recherche, invite à réinterroger nos conceptions actuelles de l’interface et à ouvrir de nouvelles perspectives en explorant les qualités du son. Nourri par ma pratique musicale, ce mémoire interroge la manière dont le son, lorsqu’il devient central dans la conception, transforme l’expérience utilisateur. Il questionne les limites des interactions visuelles traditionnelles et ouvre des pistes pour imaginer des expériences plus incarnées.",
+        media: [
+          { kind: "video", src: "https://vimeo.com/1177627694?share=copy&fl=sv&fe=ci", keep: true, gif: true },
+          { kind: "image", src: "import/memoire/face.png", keep: true },
+          { kind: "image", src: "import/memoire/prisedevue.png" },
+          { kind: "image", src: "import/memoire/couv.png", pos: "50% 75%" }
+        ]
+      },
+      {
+        id: "mo-001",
+        category: ["son", "motion"],
+        name: "générique",
+        modified: "05 avril. 2025",
+        type: "motion",
+        projet: "école",
+        thumb: "import/generique/icon.png",
+        author: "Alicia",
+        desc: "Remake d’un générique de début du film American Gigolo réalisé par Paul Schrader en 1980. Mon intention était de faire ressortir l’esthétique kitsch et glamour des années 1980, tout en proposant une lecture critique du personnage du gigolo. Pour cela, j’ai utilisé un jeu d’échelle, alternant gros plans et dézooms, afin de montrer ce personnage comme un objet de désir que les femmes manipulent. La bande sonore du générique est originale et composée par moi, afin de plonger le spectateur dans une ambiance inspirée des sonorités des années 80.",
+        media: [
+          { kind: "video", src: "https://vimeo.com/1167915870?fl=tl&fe=ec" },
+          { kind: "image", src: "import/generique/screen.png" }
+        ]
+      },
+      {
+        id: "pr-001",
+        category: ["son", "prog"],
+        name: "clavier sonore",
+        modified: "22 dec. 2025",
+        type: "programmation/soundesign",
+        projet: "perso",
+        thumb: "import/clavier/mockup.png",
+        author: "Alicia",
+        desc: "Développement d’un clavier sonore sur cables.gl, un environnement de programmation visuelle en temps réel. Les touches de 1 à 9 déclenchent des sons, tandis que les formes graphiques réagissent en direct grâce à un patch intégrant un analyseur audio. Celui-ci capte les basses, les percussions et les fréquences liées aux accords. La composition sonore est originale et a été réalisée par moi.",
+        media: [
+          { kind: "video", src: "https://vimeo.com/1167916204?fl=tl&fe=ec", keep: true },
+          { kind: "image", src: "import/clavier/ecrancales.png" },
+          { kind: "image", src: "import/clavier/mockup.png", keep: true }
+        ]
+      },
+      {
+        id: "so-002",
+        category: "son",
+        name: "track rework",
+        modified: "27 sept. 2025",
+        type: "ascii art/sound",
+        projet: "perso",
+        thumb: "import/track/flower.png",
+        author: "Alicia",
+        desc: "À partir des morceaux No One Noticed (TheMarias), Ils me rient tous au nez (Theodora), Balance ton quoi (Angèle) et Like Him (Tyler, The Creator). J'ai fait un arrangement basé sur la progression des accords Am7 — D7 — Gmaj7 — Cmaj7, réalisé sur Logic Pro avec des sons de clavier. Visuels réalisés sur Blender pour accompagner l’ambiance sonore.",
+        media: [
+          { kind: "video", src: "https://vimeo.com/1177362365?share=copy&fl=sv&fe=ci", keep: true },
+          { kind: "image", src: "import/track/screenblend.png" },
+          { kind: "image", src: "import/track/screenlogic.png" }
+        ]
+      },
+      {
+        id: "so-001",
+        category: ["son", "motion"],
+        name: "resonnant bodies",
+        modified: "06 fev. 2026",
+        type: "mapping",
+        projet: "workshop",
+        thumb: "import/mapping/icon.png",
+        author: "Alicia",
+        desc: "Réalisation d’une projection audiovisuelle expérimentale, conçue pour être diffusée sur une installation composée en trois colonnes. Ce travail collaboratif met en scène des visuels organiques inspirés par le mouvement de la danse. Nous avons créé des vidéos expérimentales dynamiques, adaptées à la projection via le logiciel Resolume, avec un important travail de synchronisation entre image et musique. J’ai également réalisé la composition musicale dans le style Drumb and Bass afin de rythmer la projection.",
+        links: [
+          {
+            label: "Retrouve ici mon son sur toutes les platformes !",
+            href: "https://linktr.ee/adoukey?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAaemjB7kXFI5m4YyF9kJaH_v30ZzB0Ups774LXUSym1HIaNXlW9bQSZDlqKHUA_aem_QLk_CmpJgeCCRks3J-gjcQ"
+          }
+        ],
+        media: [
+          { kind: "video", src: "https://vimeo.com/1241554069?share=copy&fl=sv&fe=ci", keep: true },
+          { kind: "image", src: "import/mapping/screenprodaliciasarrus_.png" }
+        ]
+      },
+      {
+        id: "pr-002",
+        category: "prog",
+        name: "mélodie",
+        modified: "22 février. 2026",
+        type: "jeux video platformer",
+        projet: "perso",
+        thumb: "import/melodie/icon.png",
+        author: "Alicia",
+        desc: "J’ai développé de manière personnelle un jeu vidéo. Le jeu suit Melody, un personnage qui doit rentrer chez elle en traversant différents biomes remplis d’obstacles. Le concept du jeu repose sur un objectif pédagogique : apprendre le rythme musical à des non-musiciens, notamment aux enfants. J’ai réalisé une démo du premier niveau intitulé “Walzer” (valse). Le gameplay permet d’appréhender le rythme à trois temps, caractéristique de la valse. Le jeu a été développé avec le moteur Godot, en utilisant le langage C#. Graphiquement, j’ai souhaité créer un univers singulier notemment grâce à un tramage original sur Stochatser. J’ai composé également la musique. ",
+        links: [
+          {
+            label: "Clique ici pour jouer à mon jeu !", 
+            href: "https://alibandjo.itch.io/melody"
+          }
+        ],
+        media: [
+          { kind: "video", src: "https://vimeo.com/1241537439?share=copy&fl=sv&fe=ci" },
+          { kind: "video", src: "https://vimeo.com/1245663096" }, 
+          { kind: "image", src: "import/melodie/troi.png" }
+        ]
+      },
+      {
+        id: "mo-002",
+        category: ["motion", "son"],
+        name: "vjing",
+        modified: "17 avril. 2026",
+        type: "vj/dj",
+        projet: "workshop",
+        thumb: "import/vjing/icon.png",
+        author: "Alicia",
+        desc: "Son & image en live. Création audiovisuelle en live mêlant graphisme sur Resolume Arena et composition sonore sur Logic Pro, réalisés par moi-même. Expérimentations autour de la nature et des formes organiques, développées lors d’un workshop d'une semaine encadré par Hugo Le Fur, artiste et membre du label OYÉ.",
+        media: [
+          { kind: "video", src: "https://vimeo.com/1241534855?share=copy&fl=sv&fe=ci", keep: true },
+          { kind: "video", src: "https://vimeo.com/1241422331?share=copy&fl=sv&fe=ci", keep: true },
+          { kind: "image", src: "import/vjing/screen.png" },
+          { kind: "video", src: "https://vimeo.com/1241423942?share=copy&fl=sv&fe=ci" }
+        ]
+      },
+      {
+        id: "da-001", 
+        category: ["motion", "son"],
+        name: "migrasons",
+        modified: "24 juin. 2026",
+        type: "recherche/data/motion",
+        projet: "école",
+        thumb: "import/data/icon.png",
+        author: "Alicia",
+        desc: "Projet de diplôme — Le son comme objet de médiation Parcours sonore fictif au Palais de la Porte Dorée. À travers un parcours sonore fondé sur la datasonification, ce projet explore la manière dont les données migratoires peuvent devenir une expérience d’écoute. Mon projet naît de cette interrogation : comment faire entendre ce qui demeure habituellement réduit à des chiffres ? Comment redonner une présence sensible à celles et ceux dont les histoires sont souvent résumées par des données ? En tant que pianiste et compositrice, mon rapport au son ne se limite pas à sa fonction technique : je l’envisage comme un langage capable de transmettre des émotions, de construire des récits et de produire du sens. C’est cette approche qui m’a conduite à m’intéresser au Musée national de l’histoire de l’immigration, au Palais de la Porte Dorée. En découvrant leur collections, je me suis demandé comment rendre sensibles des réalités migratoires souvent représentées par des chiffres, des cartes, des statistiques ou des documents administratifs. Comment faire ressentir ce qui se cache derrière ces données ? Pour répondre à cette question, j’ai choisi de partir d’une histoire qui m’est proche : celle de mes grands-parents, arrivés du Dahomey, actuel Bénin, à Paris dans les années 1970. J’ai réalisé des entretiens avec eux afin de recueillir leurs récits, leurs souvenirs et leur expérience de la migration.Leur parcours est devenu le point d’entrée du projet. À travers leur histoire, j’ai cherché à faire dialoguer une mémoire familiale avec l’histoire plus large des migrations racontée par le musée. J’ai ainsi imaginé un parcours sonore fictif intégré à l’exposition permanente du Palais de la Porte Dorée. J’ai réalisé une préfiguration de l’exposition, sa scénographie et sa narration visuelle, tout en composant l’ensemble des paysages sonores à partir des données et des récits recueillis. Le parcours sonore cherche à révéler une autre couche de lecture : ce que les dates ne disent pas, ce que les archives n’entendent pas.",
+        media: [
+          { kind: "video", src: "https://youtu.be/tWv8tFzP4m4", keep: true },
+          { kind: "image", src: "import/data/trois.jpg" },
+          { kind: "image", src: "import/data/journal.png" },
+          { kind: "image", src: "import/data/un.jpg" },
+          { kind: "image", src: "import/data/story.png", keep: true, bg: "white" },
+          { kind: "image", src: "import/data/plan.png", keep: true, bg: "white" }
+        ]
+      }
+
+    ];
+
+    const desktopFiles = [];
+
+    const items = [
+      ...folders,
+      ...projects.map(p => ({ ...p, kind: "file" })),
+      ...desktopFiles
+    ];
+
+    // Positions par défaut : centre horizontal (cx) et haut de l'icône (ty), en fraction du bureau
+    const defaultPositions = {
+      "folder-edition": { cx: 0.2836, ty: 0.3650 },
+      "folder-motion": { cx: 0.5468, ty: 0.1183 },
+      "folder-prog": { cx: 0.4555, ty: 0.6479 },
+      "folder-son": { cx: 0.6348, ty: 0.1993 },
+      "so-002": { cx: 0.4239, ty: 0.1608 },
+      "pr-002": { cx: 0.4537, ty: 0.4015 },
+      "ed-002": { cx: 0.3595, ty: 0.3652 },
+      "mo-002": { cx: 0.4904, ty: 0.3071 },
+      "pr-001": { cx: 0.5344, ty: 0.5792 },
+      "ed-001": { cx: 0.6541, ty: 0.3440 },
+      "mo-001": { cx: 0.6653, ty: 0.6711 },
+      "da-001": { cx: 0.3776, ty: 0.5145 },
+      "so-001": { cx: 0.5671, ty: 0.3138 },
+      "sh-001": { cx: 0.5046, ty: 0.4510 },
+      "dj-001": { cx: 0.6147, ty: 0.5012 }
+    };
+    /* =========================
+       POSITIONS (LOCALSTORAGE)
+       ========================= */
+    function loadPositions(){
+      try { return JSON.parse(localStorage.getItem(LS_POS) || "{}"); }
+      catch { return {}; }
+    }
+
+    function savePositions(map){
+      localStorage.setItem(LS_POS, JSON.stringify(map));
+    }
+
+    let positions = loadPositions();
+    let selectedId = null;
+
+    function clearSelection(){
+      $$(".icon", desktop).forEach(i => i.classList.remove("selected"));
+      selectedId = null;
+    }
+
+    /* =========================
+       DESKTOP RENDER + DRAG
+       ========================= */
+    function renderDesktop(){
+      desktop.classList.toggle("mobile", isMobile());
+      desktop.querySelectorAll(".icon").forEach(n => n.remove());
+
+      const renderList = isMobile() ? folders : items;
+
+      renderList.forEach((it, idx) => {
+        const icon = document.createElement("div");
+        icon.className = "icon";
+        icon.dataset.id = it.id;
+        icon.dataset.kind = it.kind || "file";
+
+        if(it.kind === "folder"){
+          icon.innerHTML = `
+            <div class="folderThumb">${FOLDER_SVG}</div>
+            <div class="label">${escapeHtml(it.name)}</div>
+          `;
+        } else {
+          icon.innerHTML = `
+            <div class="thumb"><img alt="" src="${it.thumb}"></div>
+            <div class="label">${escapeHtml(it.name)}</div>
+          `;
+        }
+
+        if (isMobile()) {
+          const padTop = 26;
+          const smallPhone = matchMedia("(max-width: 360px)").matches;
+          const rowH = smallPhone ? 165 : 180; 
+
+          const xLeftPct  = 0.18;
+          const xRightPct = 0.58;
+
+          const w = desktop.clientWidth || window.innerWidth;
+
+          const padX = 12;
+          const iconW = 92;
+          const minX = padX;
+          const maxX = Math.max(minX, w - iconW - padX);
+
+          const row = idx;
+          const isRight = (row % 2) === 1;
+
+          let x = Math.round(w * (isRight ? xRightPct : xLeftPct));
+          x = Math.max(minX, Math.min(x, maxX));
+
+          icon.style.left = x + "px";
+          let top = (padTop + row * rowH);
+
+
+          if(it.id === "folder-son"){
+          top -= smallPhone ? 40 : 24;
+          }
+
+          icon.style.top = top + "px";
+
+          desktop.style.minHeight = (padTop + (row + 1) * rowH + 180) + "px";
+        } else {
+          const saved = positions[it.id];
+          if(saved){
+            icon.style.left = Math.round(saved.x) + "px";
+            icon.style.top  = Math.round(saved.y) + "px";
+          } else {
+            icon.dataset.placeDefault = "1";
+          }
+        }
+
+        icon.addEventListener("click", () => {
+          if(isMobile()){
+            if(it.kind === "folder") openFinder(it.category, it.name);
+            else openProjectWindow(it.id);
+            return;
+          }
+          clearSelection();
+          icon.classList.add("selected");
+          selectedId = it.id;
+        });
+
+        if(!isMobile()){
+          icon.addEventListener("dblclick", () => {
+            if(it.kind === "folder") openFinder(it.category, it.name);
+            else openProjectWindow(it.id);
+          });
+        } else {
+          icon.addEventListener("pointerup", () => {
+            if(it.kind === "folder") openFinder(it.category, it.name);
+            else openProjectWindow(it.id);
+          });
+        }
+
+        // Drag uniquement desktop
+        if(!isMobile()){
+          icon.addEventListener("pointerdown", (e) => {
+            if(e.button !== 0) return;
+
+            clearSelection();
+            icon.classList.add("selected");
+            selectedId = it.id;
+
+            bringFront(icon);
+            icon.classList.add("is-dragging");
+
+            const drect = desktop.getBoundingClientRect();
+            const rect  = icon.getBoundingClientRect();
+
+            const grabX = e.clientX - rect.left;
+            const grabY = e.clientY - rect.top;
+
+            icon._drag = { grabX, grabY, drect };
+            icon.setPointerCapture(e.pointerId);
+            e.preventDefault();
+          });
+
+          icon.addEventListener("pointermove", (e) => {
+            if(!icon._drag) return;
+
+            const drect = icon._drag.drect;
+
+            let nx = (e.clientX - drect.left) - icon._drag.grabX;
+            let ny = (e.clientY - drect.top)  - icon._drag.grabY;
+
+            const maxX = drect.width  - icon.offsetWidth  - 8;
+            const maxY = drect.height - icon.offsetHeight - 8;
+
+            nx = Math.max(8, Math.min(nx, maxX));
+            ny = Math.max(8, Math.min(ny, maxY));
+
+            icon.style.left = Math.round(nx) + "px";
+            icon.style.top  = Math.round(ny) + "px";
+          });
+
+          icon.addEventListener("pointerup", (e) => {
+            if(!icon._drag) return;
+
+            const drect = desktop.getBoundingClientRect();
+            const rect  = icon.getBoundingClientRect();
+
+            const nx = rect.left - drect.left;
+            const ny = rect.top  - drect.top;
+
+            positions[it.id] = { x: Math.round(nx), y: Math.round(ny) };
+            savePositions(positions);
+
+            icon.classList.remove("is-dragging");
+            icon.releasePointerCapture(e.pointerId);
+            icon._drag = null;
+          });
+
+          icon.addEventListener("lostpointercapture", () => {
+            if(!icon._drag) return;
+            icon.classList.remove("is-dragging");
+            icon._drag = null;
+          });
+        }
+
+        desktop.appendChild(icon);
+
+        if(!isMobile() && icon.dataset.placeDefault){
+          const d = defaultPositions[it.id];
+          const dw = desktop.clientWidth, dh = desktop.clientHeight;
+          let x, y;
+          if(d){
+            x = d.cx * dw - icon.offsetWidth / 2;
+            y = d.ty * dh;
+          } else {
+            x = 30 + (idx % 9) * 95;
+            y = 50 + Math.floor(idx / 9) * 130;
+          }
+          x = Math.max(8, Math.min(x, dw - icon.offsetWidth - 8));
+          y = Math.max(8, Math.min(y, dh - icon.offsetHeight - 8));
+          icon.style.left = Math.round(x) + "px";
+          icon.style.top  = Math.round(y) + "px";
+        }
+      });
+    }
+
+    desktop.addEventListener("pointerdown", (e) => {
+      if(e.target === desktop) clearSelection();
+    });
+
+    /* =========================
+       WINDOWS : INFO (TEMPLATE)
+       ========================= */
+    const infoWin = $("#infoWin");
+    const infoBar = $("#infoBar");
+
+    // Info template (non utilisée comme fenêtre “dock”, donc on ferme juste)
+    function closeInfo(){
+      infoWin.classList.remove("show");
+    }
+    $("#btnCloseInfo")?.addEventListener("click", closeInfo);
+    $("#btnMinInfo")?.addEventListener("click", closeInfo);
+
+    $("#btnMaxInfo")?.addEventListener("click", () => {
+      if(isMobile()) return;
+
+      const isMax = infoWin.dataset.max === "1";
+      if(!isMax){
+        infoWin.dataset.max = "1";
+        infoWin.style.left = "10px";
+        infoWin.style.top = "calc(var(--menuH) + var(--safeTop) + 10px)";
+        infoWin.style.transform = "none";
+        infoWin.style.width = "calc(100vw - 20px)";
+        infoWin.style.height = "calc(100vh - var(--menuH) - var(--dockH) - var(--safeBot) - 20px)";
+      } else {
+        infoWin.dataset.max = "0";
+        infoWin.removeAttribute("style");
+      }
+    });
+
+    let wdrag = null;
+    infoBar?.addEventListener("pointerdown", (e) => {
+      if(isMobile()) return;
+      if(infoWin.dataset.max === "1") return;
+
+      bringFront(infoWin);
+      const rect = infoWin.getBoundingClientRect();
+      wdrag = { startX: e.clientX, startY: e.clientY, baseL: rect.left, baseT: rect.top };
+      infoBar.setPointerCapture(e.pointerId);
+    });
+
+    infoBar?.addEventListener("pointermove", (e) => {
+      if(!wdrag) return;
+      infoWin.style.left = (wdrag.baseL + (e.clientX - wdrag.startX)) + "px";
+      infoWin.style.top  = (wdrag.baseT + (e.clientY - wdrag.startY)) + "px";
+      infoWin.style.transform = "none";
+    });
+
+    infoBar?.addEventListener("pointerup", (e) => {
+      if(!wdrag) return;
+      infoBar.releasePointerCapture(e.pointerId);
+      wdrag = null;
+    });
+
+    /* =========================
+       WINDOWS : PROJECT SINGLETON
+       ========================= */
+    const openWindows = new Map();
+
+    function getProjectData(id){
+      return projects.find(x => x.id === id) || desktopFiles.find(x => x.id === id);
+    }
+
+    function toVimeoEmbed(url){
+      const s = String(url || "");
+      const id = s.startsWith("VIMEO:")
+        ? s.replace("VIMEO:", "").trim()
+        : (s.match(/vimeo\.com\/(?:video\/)?(\d+)/)?.[1] || "");
+      return id ? `https://player.vimeo.com/video/${id}` : "";
+    }
+
+    function toYoutubeEmbed(url){
+      const s = String(url || "");
+      const id = s.startsWith("YOUTUBE:")
+        ? s.replace("YOUTUBE:", "").trim()
+        : (s.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]+)/)?.[1] || "");
+      return id ? `https://www.youtube.com/embed/${id}` : "";
+    }
+
+    /* Vimeo discret */
+    const VIMEO_PARAMS = "title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&like=0&watchlater=0&share=0&embed=0&dnt=1&playsinline=1";
+
+    const ICO = {
+      play:  '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>',
+      pause: '<svg viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>',
+      back:  '<svg viewBox="0 0 24 24"><path d="M12 5V2L7.5 6 12 10V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z"/><text x="12" y="16.2" font-size="7.2" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700">15</text></svg>',
+      fwd:   '<svg viewBox="0 0 24 24"><path d="M12 5V2l4.5 4L12 10V7a6 6 0 1 0 6 6h2a8 8 0 1 1-8-8z"/><text x="12" y="16.2" font-size="7.2" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700">15</text></svg>',
+      vol:   '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="wave" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>'
+    };
+
+    const VIMEO_UI = `
+      <div class="vclick"></div>
+      <div class="vvol">
+        <button type="button" class="vmute" aria-label="Son">${ICO.vol}</button>
+        <input class="vrange vvolr" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+      </div>
+      <div class="vbar">
+        <button type="button" class="vb15" aria-label="Reculer de 15 secondes">${ICO.back}</button>
+        <button type="button" class="vplay" aria-label="Lecture / pause"><span class="i-play">${ICO.play}</span><span class="i-pause">${ICO.pause}</span></button>
+        <button type="button" class="vf15" aria-label="Avancer de 15 secondes">${ICO.fwd}</button>
+        <span class="vcur">00:00</span>
+        <input class="vrange vseek" type="range" min="0" max="1000" step="1" value="0" aria-label="Progression">
+        <span class="vdur">00:00</span>
+        <button type="button" class="vrate" aria-label="Vitesse">»</button>
+      </div>`;
+
+    /* Lecteur Vimeo personnalisé (contrôles discrets au centre, sans onglets ni logo) */
+    function initVimeo(root){
+      if(!window.Vimeo) return;
+      $$(".video.vimeo:not(.native):not(.gif)", root).forEach(box => {
+        const iframe = box.querySelector("iframe");
+        const player = new Vimeo.Player(iframe);
+        const q = s => box.querySelector(s);
+        const seek = q(".vseek"), cur = q(".vcur"), dur = q(".vdur"), vol = q(".vvolr"), mute = q(".vmute"), rate = q(".vrate");
+        let duration = 0, seeking = false, lastVol = 1, ri = 0;
+        const rates = [1, 1.5, 2, 0.5];
+
+        const fmt = (s) => {
+          s = Math.max(0, Math.floor(s || 0));
+          return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+        };
+        const setProgress = (pct) => seek.style.setProperty("--p", pct + "%");
+        const loadDuration = () => player.getDuration().then(d => { duration = d; dur.textContent = fmt(d); }).catch(()=>{});
+
+        const loadRatio = () => Promise.all([player.getVideoWidth(), player.getVideoHeight()])
+          .then(([vw, vh]) => { if(vw && vh) box.style.setProperty("--ar", (vw / vh).toFixed(4)); })
+          .catch(()=>{});
+
+        loadDuration();
+        loadRatio();
+        player.on("loaded", () => { loadDuration(); loadRatio(); });
+        player.on("timeupdate", (d) => {
+          duration = d.duration || duration;
+          dur.textContent = fmt(duration);
+          if(seeking) return;
+          cur.textContent = fmt(d.seconds);
+          seek.value = Math.round((d.percent || 0) * 1000);
+          setProgress((d.percent || 0) * 100);
+        });
+        player.on("play",  () => box.classList.add("vplaying"));
+        player.on("pause", () => box.classList.remove("vplaying"));
+        player.on("ended", () => box.classList.remove("vplaying"));
+
+        const toggle = () => player.getPaused().then(p => p ? player.play() : player.pause()).catch(()=>{});
+        q(".vclick").addEventListener("click", toggle);
+        q(".vplay").addEventListener("click", toggle);
+
+        q(".vb15").addEventListener("click", () => player.getCurrentTime().then(t => player.setCurrentTime(Math.max(0, t - 15))).catch(()=>{}));
+        q(".vf15").addEventListener("click", () => player.getCurrentTime().then(t => player.setCurrentTime(Math.min(duration || t + 15, t + 15))).catch(()=>{}));
+
+        seek.addEventListener("input", () => {
+          seeking = true;
+          cur.textContent = fmt(seek.value / 1000 * duration);
+          setProgress(seek.value / 10);
+        });
+        seek.addEventListener("change", () => {
+          player.setCurrentTime(seek.value / 1000 * duration).catch(()=>{}).then(() => { seeking = false; });
+        });
+
+        vol.addEventListener("input", () => {
+          const v = parseFloat(vol.value);
+          player.setVolume(v).catch(()=>{});
+          mute.classList.toggle("muted", v === 0);
+          if(v > 0) lastVol = v;
+        });
+        mute.addEventListener("click", () => {
+          const wasMuted = mute.classList.contains("muted");
+          const v = wasMuted ? (lastVol || 1) : 0;
+          vol.value = v;
+          player.setVolume(v).catch(()=>{});
+          mute.classList.toggle("muted", !wasMuted);
+        });
+
+        rate.addEventListener("click", () => {
+          ri = (ri + 1) % rates.length;
+          player.setPlaybackRate(rates[ri]).catch(()=>{});
+          rate.textContent = rates[ri] === 1 ? "»" : rates[ri] + "×";
+        });
+      });
+    }
+
+    function buildSlides(data){
+      const list = Array.isArray(data.media) ? data.media : [];
+      return list.map(m => {
+        const fc = m.keep ? "" : " fill";   // "fill" = le média remplit tout l'espace (sans bords noirs)
+        if(m.kind === "dj") return `<div class="slide dj-slide" data-dj="1"></div>`;
+        if(m.kind === "image") return `<div class="slide${fc}${m.bg === "white" ? " light" : ""}"><img alt="" src="${m.src}"${m.pos ? ` style="object-position:${m.pos}"` : ""}></div>`;
+        if(m.kind !== "video") return "";
+
+        const s = String(m.src || "");
+
+        const vimeo = toVimeoEmbed(s);
+        if(vimeo && m.gif){
+          /* comportement "gif" : lecture auto, en boucle, sans son ni contrôles */
+          return `<div class="slide${fc}"><div class="video vimeo gif"><iframe
+            src="${vimeo}?background=1&autoplay=1&loop=1&muted=1&dnt=1&playsinline=1"
+            title="Vidéo du projet"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"></iframe></div></div>`;
+        }
+        if(vimeo){
+          const native = !window.Vimeo;   // si l'API Vimeo ne charge pas : lecteur Vimeo classique
+          return `<div class="slide${fc}"><div class="video vimeo${native ? " native" : ""}"><iframe
+            src="${vimeo}?${VIMEO_PARAMS}${native ? "" : "&controls=0"}"
+            title="Vidéo du projet"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen></iframe>${native ? "" : VIMEO_UI}</div></div>`;
+        }
+
+        const yt = toYoutubeEmbed(s);
+        if(yt){
+          const ytId = yt.split("/embed/")[1];
+          return `<div class="slide${fc}"><div class="video yt-facade" data-yt="${ytId}" data-title="${escapeHtml(data.name)}">
+            <img class="yt-thumb" alt="" src="https://i.ytimg.com/vi/${ytId}/hqdefault.jpg">
+            <button class="yt-play" type="button" aria-label="Lire la vidéo"></button>
+          </div></div>`;
+        }
+
+        return `<div class="slide${fc}"><video class="v" controls playsinline preload="metadata"><source src="${s}" type="video/mp4"></video></div>`;
+      }).filter(Boolean);
+    }
+
+    function openDJ(){
+      if(!djWin) return;
+      djWin.classList.add("show");
+      bringFront(djWin);
+      dock.querySelector('.dock-item[data-action="dj"]')?.classList.add("running");
+    }
+
+    function openProjectWindow(id){
+      const data = getProjectData(id);
+      if(!data) return;
+
+      if(data.action === "dj"){
+        openDJ();
+        return;
+      }
+
+      const existing = openWindows.get(id);
+      if(existing){
+        existing.classList.add("show");
+        bringFront(existing);
+        return;
+      }
+
+      const win = infoWin.cloneNode(true);
+      win.classList.add("projectWin");
+      win.id = "infoWin_" + id;
+      win.dataset.fileId = id;
+      win.dataset.max = "0";
+      win.classList.add("show");
+
+      if(!isMobile()){
+        const w = Math.min(880, window.innerWidth - 60);
+        const h = Math.min(520, window.innerHeight - 150);
+        win.style.left = Math.max(24, Math.min(90, window.innerWidth - w - 24)) + "px";
+        win.style.top  = (Math.max(58, (window.innerHeight - h) / 2 - 30)) + "px";
+        win.style.transform = "none";
+      } else {
+        win.style.left = "";
+        win.style.top = "";
+        win.style.transform = "";
+        win.style.width = "";
+        win.style.height = "";
+      }
+
+      bringFront(win);
+      document.body.appendChild(win);
+      openWindows.set(id, win);
+
+      const body = win.querySelector(".win-body");
+      body.classList.add("pbody");
+
+      const slides = buildSlides(data);
+      const linksHTML = (Array.isArray(data.links) && data.links.length)
+        ? `<div class="desc-links">${data.links.map(l => `
+            <a class="desc-link" href="${l.href}" target="_blank" rel="noopener noreferrer">
+              <span class="link-arrow" aria-hidden="true">&gt;</span>
+              <span>${escapeHtml(l.label)}</span>
+            </a>`).join("")}</div>`
+        : "";
+
+      body.innerHTML = `
+        <div class="pmedia">${slides.join("")}</div>
+        ${slides.length > 1 ? `<div class="pdots">${slides.map((_, i) => `<button type="button" class="pdot${i === 0 ? " on" : ""}" data-i="${i}" aria-label="Média ${i + 1}"></button>`).join("")}</div>` : ""}
+        <div class="pshield"></div>
+        <div class="bzone">
+          <aside class="bubble">
+            <div class="bubble-scroll">
+              <div class="b-meta">
+                <div>Type : ${escapeHtml(data.type || "—")}</div>
+                <div>Projet : ${escapeHtml(data.projet || "—")}</div>
+                <div>Date : ${escapeHtml(data.date || data.modified || "—")}</div>
+              </div>
+              <div class="b-desc">${escapeHtml((data.desc || "").replace(/^\s+/, ""))}</div>
+              ${linksHTML}
+            </div>
+          </aside>
+        </div>
+      `;
+
+      initVimeo(body);
+
+      /* DJGAME */
+      const djSlot = body.querySelector(".dj-slide");
+      const djUI = document.getElementById("dj-ui");
+      const parkDJ = () => {
+        const park = document.querySelector("#djWin .dj-body");
+        if(djUI && park && djUI.parentNode !== park) park.appendChild(djUI);
+        dock.querySelector('.dock-item[data-action="dj"]')?.classList.remove("running");
+      };
+      if(djSlot && djUI){
+        djSlot.appendChild(djUI);
+        dock.querySelector('.dock-item[data-action="dj"]')?.classList.add("running");
+      }
+
+      /* Bulle*/
+      const bzone  = body.querySelector(".bzone");
+      const pmedia = body.querySelector(".pmedia");
+      const shield = body.querySelector(".pshield");
+
+      /* La couche invisible */
+      const setBubble = (open) => {
+        bzone.classList.toggle("collapsed", !open);
+        shield.style.pointerEvents = open ? "auto" : "none";
+      };
+
+      bzone.addEventListener("pointerenter", (e) => { if(e.pointerType === "mouse") setBubble(true); });
+      bzone.addEventListener("pointerleave", (e) => { if(e.pointerType === "mouse") setBubble(false); });
+      shield.addEventListener("pointerenter", () => setBubble(false));
+      shield.addEventListener("pointerdown", () => setBubble(false));
+      setBubble(true);
+      bzone.addEventListener("click", () => { if(bzone.classList.contains("collapsed")) setBubble(true); });
+      pmedia.addEventListener("click", () => setBubble(false));
+
+      /* Points de navigation entre les médias */
+      const dots = $$(".pdot", body);
+      if(dots.length){
+        pmedia.addEventListener("scroll", () => {
+          const s0 = pmedia.children[0], s1 = pmedia.children[1];
+          const step = (s0 && s1) ? (s1.offsetTop - s0.offsetTop) : Math.max(1, pmedia.clientHeight);
+          const i = Math.round(pmedia.scrollTop / Math.max(1, step));
+          dots.forEach((d, k) => d.classList.toggle("on", k === i));
+        }, { passive: true });
+        dots.forEach(d => d.addEventListener("click", () => {
+          pmedia.children[+d.dataset.i]?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }));
+      }
+
+      const btnClose = win.querySelector(".dotbtn.red");
+      const btnMin   = win.querySelector(".dotbtn.yellow");
+      const btnMax   = win.querySelector(".dotbtn.green");
+
+      btnClose?.addEventListener("click", () => {
+        if(djSlot) parkDJ();
+        openWindows.delete(id);
+        win.remove();
+      });
+
+      btnMin?.addEventListener("click", () => {
+        if(djSlot) dock.querySelector('.dock-item[data-action="dj"]')?.classList.remove("running");
+        win.classList.remove("show");
+      });
+
+      btnMax?.addEventListener("click", () => {
+        if(isMobile()) return;
+
+        const isMax = win.dataset.max === "1";
+        if(!isMax){
+          win.dataset.max = "1";
+          win.style.left = "10px";
+          win.style.top = "calc(var(--menuH) + var(--safeTop) + 10px)";
+          win.style.transform = "none";
+          win.style.width = "calc(100vw - 20px)";
+          win.style.height = "calc(100vh - var(--menuH) - var(--dockH) - var(--safeBot) - 20px)";
+        } else {
+          win.dataset.max = "0";
+          win.style.width = "";
+          win.style.height = "";
+        }
+      });
+
+      const bar = win.querySelector(".titlebar");
+      let drag = null;
+
+      
+bar?.addEventListener("pointerdown", (e) => {
+  if(isMobile()) return;
+
+  // Ne pas intercepter les clics sur les boutons de fenêtre
+  if(e.target.closest(".traffic, .dotbtn, button")) return;
+
+  if(win.dataset.max === "1") return;
+
+  bringFront(win);
+  const rect = win.getBoundingClientRect();
+
+  drag = {
+    sx: e.clientX,
+    sy: e.clientY,
+    lx: rect.left,
+    ly: rect.top
+  };
+
+  bar.setPointerCapture(e.pointerId);
+});
+
+      bar?.addEventListener("pointermove", (e) => {
+        if(!drag) return;
+        win.style.left = (drag.lx + (e.clientX - drag.sx)) + "px";
+        win.style.top  = (drag.ly + (e.clientY - drag.sy)) + "px";
+        win.style.transform = "none";
+      });
+
+      bar?.addEventListener("pointerup", (e) => {
+        drag = null;
+        try{ bar.releasePointerCapture(e.pointerId); } catch {}
+      });
+
+      win.addEventListener("pointerdown", () => bringFront(win));
+    }
+
+    /* =========================
+       WINDOWS : FINDER
+       ========================= */
+    const finderWin   = $("#finderWin");
+    const finderBar   = $("#finderBar");
+    const finderTitle = $("#finderTitle");
+    const finderPath  = $("#finderPath");
+    const finderRows  = $("#finderRows");
+
+    function openFinder(category, label){
+      finderTitle.textContent = label;
+      finderPath.textContent = label;
+
+      const list = projects.filter(p => {
+        const cats = Array.isArray(p.category) ? p.category : [p.category];
+        return cats.includes(category);
+      });
+
+      finderRows.innerHTML = list.map(p => {
+        const mod = p.modified || "—";
+        const modText = isMobile() ? mod.split(" à ")[0] : mod;
+
+        return `
+          <div class="finder-row" data-id="${p.id}">
+            <div class="finder-name">
+              <div class="mini-ico"><img alt="" src="${p.thumb}"></div>
+              <span>${escapeHtml(p.name)}</span>
+            </div>
+            <div>${escapeHtml(modText)}</div>
+            <div class="col-type">${escapeHtml(p.type || "—")}</div>
+          </div>
+        `;
+      }).join("");
+
+      finderWin.classList.add("show");
+      bringFront(finderWin);
+
+      if(!isMobile()){
+        const w = Math.min(880, window.innerWidth - 60);
+        const h = Math.min(520, window.innerHeight - 150);
+        finderWin.style.width = w + "px";
+        finderWin.style.height = h + "px";
+        finderWin.style.left = ((window.innerWidth - w) / 2) + "px";
+        finderWin.style.top  = (Math.max(70, (window.innerHeight - h) / 2 - 90)) + "px";
+        finderWin.style.transform = "none";
+      } else {
+        finderWin.style.width = "";
+        finderWin.style.height = "";
+        finderWin.style.left = "";
+        finderWin.style.top = "";
+        finderWin.style.transform = "";
+      }
+    }
+
+    function closeFinder(){
+      finderWin.classList.remove("show");
+    }
+
+    finderRows.addEventListener("click", (e) => {
+      const row = e.target.closest(".finder-row");
+      if(!row) return;
+
+      $$(".finder-row", finderRows).forEach(r => r.classList.remove("selected"));
+      row.classList.add("selected");
+    });
+
+    finderRows.addEventListener("dblclick", (e) => {
+      const row = e.target.closest(".finder-row");
+      if(!row) return;
+      openProjectWindow(row.dataset.id);
+    });
+
+    finderRows.addEventListener("pointerup", (e) => {
+      if(!isMobile()) return;
+      const row = e.target.closest(".finder-row");
+      if(!row) return;
+      openProjectWindow(row.dataset.id);
+    });
+
+    $("#btnCloseFinder")?.addEventListener("click", closeFinder);
+    $("#btnMinFinder")?.addEventListener("click", closeFinder);
+
+    $("#btnMaxFinder")?.addEventListener("click", () => {
+      if(isMobile()) return;
+
+      const isMax = finderWin.dataset.max === "1";
+      if(!isMax){
+        finderWin.dataset.max = "1";
+        finderWin.style.left = "10px";
+        finderWin.style.top = "calc(var(--menuH) + var(--safeTop) + 10px)";
+        finderWin.style.transform = "none";
+        finderWin.style.width = "calc(100vw - 20px)";
+        finderWin.style.height = "calc(100vh - var(--menuH) - var(--dockH) - var(--safeBot) - 20px)";
+      } else {
+        finderWin.dataset.max = "0";
+        finderWin.removeAttribute("style");
+      }
+    });
+
+    let fdrag = null;
+    finderBar?.addEventListener("pointerdown", (e) => {
+      if(isMobile()) return;
+      if(e.target.closest(".traffic, .dotbtn, button")) return;
+      if(finderWin.dataset.max === "1") return;
+
+      bringFront(finderWin);
+      const rect = finderWin.getBoundingClientRect();
+      fdrag = { startX: e.clientX, startY: e.clientY, baseL: rect.left, baseT: rect.top };
+      finderBar.setPointerCapture(e.pointerId);
+    });
+
+    finderBar?.addEventListener("pointermove", (e) => {
+      if(!fdrag) return;
+      finderWin.style.left = (fdrag.baseL + (e.clientX - fdrag.startX)) + "px";
+      finderWin.style.top  = (fdrag.baseT + (e.clientY - fdrag.startY)) + "px";
+      finderWin.style.transform = "none";
+    });
+
+    finderBar?.addEventListener("pointerup", (e) => {
+      if(!fdrag) return;
+      finderBar.releasePointerCapture(e.pointerId);
+      fdrag = null;
+    });
+
+    /* =========================
+       DJ WINDOW : OPEN/CLOSE/MAX/DRAG
+       ========================= */
+    const djWin = $("#djWin");
+    const djBar = $("#djBar");
+
+    const btnCloseDJ = $("#btnCloseDJ");
+    const btnMinDJ   = $("#btnMinDJ");
+    const btnMaxDJ   = $("#btnMaxDJ");
+
+    function closeDJ(){
+      djWin?.classList.remove("show");
+      dock.querySelector('.dock-item[data-action="dj"]')?.classList.remove("running");
+    }
+
+    btnCloseDJ?.addEventListener("click", closeDJ);
+    btnMinDJ?.addEventListener("click", closeDJ);
+
+    btnMaxDJ?.addEventListener("click", () => {
+      if(!djWin) return;
+      if(isMobile()) return;
+
+      const isMax = djWin.dataset.max === "1";
+      if(!isMax){
+        djWin.dataset.max = "1";
+        djWin.style.left = "10px";
+        djWin.style.top = "calc(var(--menuH) + var(--safeTop) + 10px)";
+        djWin.style.transform = "none";
+        djWin.style.width = "calc(100vw - 20px)";
+        djWin.style.height = "calc(100vh - var(--menuH) - var(--dockH) - var(--safeBot) - 20px)";
+      } else {
+        djWin.dataset.max = "0";
+        djWin.removeAttribute("style");
+      }
+    });
+
+    let djDrag = null;
+    djBar?.addEventListener("pointerdown", (e) => {
+      if(isMobile()) return;
+      if(e.target.closest(".traffic, .dotbtn, button")) return;
+      if(djWin?.dataset.max === "1") return;
+
+      bringFront(djWin);
+      const rect = djWin.getBoundingClientRect();
+      djDrag = { startX: e.clientX, startY: e.clientY, baseL: rect.left, baseT: rect.top };
+      djBar.setPointerCapture(e.pointerId);
+    });
+
+    djBar?.addEventListener("pointermove", (e) => {
+      if(!djDrag || !djWin) return;
+      djWin.style.left = (djDrag.baseL + (e.clientX - djDrag.startX)) + "px";
+      djWin.style.top  = (djDrag.baseT + (e.clientY - djDrag.startY)) + "px";
+      djWin.style.transform = "none";
+    });
+
+    djBar?.addEventListener("pointerup", (e) => {
+      if(!djDrag) return;
+      djBar.releasePointerCapture(e.pointerId);
+      djDrag = null;
+    });
+
+    /* =========================
+       DOCK TOOLTIP (custom)
+       ========================= */
+
+    document.addEventListener("click", (e) => {
+  const f = e.target.closest(".yt-facade");
+  if (!f || f.querySelector("iframe")) return;
+
+  const id = f.dataset.yt;
+  f.innerHTML = `
+    <iframe
+      src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3"
+      title="${f.dataset.title || "Vidéo du projet"}"
+      frameborder="0"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+      allowfullscreen></iframe>
+  `;
+});
+
+    (function initDockTooltip(){
+      if(isMobile()) return;
+
+      const tip = document.createElement("div");
+      tip.className = "dock-tooltip";
+      document.body.appendChild(tip);
+
+      $$(".dock-item", dock).forEach(el => {
+        if(el.hasAttribute("title")){
+          el.dataset.tip = el.getAttribute("title") || "";
+          el.removeAttribute("title");
+        }
+      });
+
+      function show(el){
+        const txt = el.dataset.tip || "";
+        if(!txt) return;
+        tip.textContent = txt;
+        tip.classList.add("show");
+        move(el);
+      }
+
+      function hide(){
+        tip.classList.remove("show");
+      }
+
+      function move(el){
+        const r = el.getBoundingClientRect();
+        tip.style.left = (r.left + r.width/2) + "px";
+        tip.style.top  = (r.top - 10) + "px";
+      }
+
+      dock.addEventListener("pointerenter", (e) => {
+        const it = e.target.closest(".dock-item");
+        if(!it) return;
+        show(it);
+      }, true);
+
+      dock.addEventListener("pointermove", (e) => {
+        const it = e.target.closest(".dock-item");
+        if(!it || !tip.classList.contains("show")) return;
+        move(it);
+      });
+
+      dock.addEventListener("pointerleave", (e) => {
+        const it = e.target.closest(".dock-item");
+        if(!it) return;
+        hide();
+      }, true);
+
+      window.addEventListener("scroll", hide, { passive: true });
+      window.addEventListener("resize", hide);
+      window.addEventListener("orientationchange", hide);
+    })();
+
+    /* =========================
+       TERMINAL WINDOW
+       ========================= */
+    const termWin = $("#termWin");
+    const termBar = $("#termBar");
+
+    const btnCloseTerm = $("#btnCloseTerm");
+    const btnMinTerm   = $("#btnMinTerm");
+    const btnMaxTerm   = $("#btnMaxTerm");
+
+    function closeTerm(){
+      termWin?.classList.remove("show");
+      dock.querySelector('.dock-item[data-action="about"]')?.classList.remove("running");
+    }
+
+    function toggleTerm(){
+      if(!termWin) return;
+      const willOpen = !termWin.classList.contains("show");
+      termWin.classList.toggle("show", willOpen);
+      if(willOpen) bringFront(termWin);
+      dock.querySelector('.dock-item[data-action="about"]')?.classList.toggle("running", willOpen);
+    }
+
+    btnCloseTerm?.addEventListener("click", closeTerm);
+    btnMinTerm?.addEventListener("click", closeTerm);
+
+    btnMaxTerm?.addEventListener("click", () => {
+      if(!termWin) return;
+      if(isMobile()) return;
+
+      const isMax = termWin.dataset.max === "1";
+      if(!isMax){
+        termWin.dataset.max = "1";
+        termWin.style.left = "10px";
+        termWin.style.top = "calc(var(--menuH) + var(--safeTop) + 10px)";
+        termWin.style.transform = "none";
+        termWin.style.width = "calc(100vw - 20px)";
+        termWin.style.height = "calc(100vh - var(--menuH) - var(--dockH) - var(--safeBot) - 20px)";
+      } else {
+        termWin.dataset.max = "0";
+        termWin.removeAttribute("style");
+      }
+    });
+
+    let termDrag = null;
+    termBar?.addEventListener("pointerdown", (e) => {
+      if(isMobile()) return;
+      if(e.target.closest(".traffic, .dotbtn, button")) return;
+      if(termWin?.dataset.max === "1") return;
+
+      bringFront(termWin);
+      const rect = termWin.getBoundingClientRect();
+      termDrag = { startX: e.clientX, startY: e.clientY, baseL: rect.left, baseT: rect.top };
+      termBar.setPointerCapture(e.pointerId);
+    });
+
+    termBar?.addEventListener("pointermove", (e) => {
+      if(!termDrag || !termWin) return;
+      termWin.style.left = (termDrag.baseL + (e.clientX - termDrag.startX)) + "px";
+      termWin.style.top  = (termDrag.baseT + (e.clientY - termDrag.startY)) + "px";
+      termWin.style.transform = "none";
+    });
+
+    termBar?.addEventListener("pointerup", (e) => {
+      if(!termDrag) return;
+      try{ termBar.releasePointerCapture(e.pointerId); } catch {}
+      termDrag = null;
+    });
+
+    /* =========================
+       NOTES WINDOW
+       ========================= */
+    const notesWin = $("#notesWin");
+    const notesBar = $("#notesBar");
+
+    const btnCloseNotes = $("#btnCloseNotes");
+    const btnMinNotes   = $("#btnMinNotes");
+    const btnMaxNotes   = $("#btnMaxNotes");
+
+    function closeNotes(){
+      notesWin?.classList.remove("show");
+      dock.querySelector('.dock-item[data-action="go-install"]')?.classList.remove("running");
+    }
+
+    function toggleNotes(){
+      if(!notesWin) return;
+      const willOpen = !notesWin.classList.contains("show");
+      notesWin.classList.toggle("show", willOpen);
+      if(willOpen) bringFront(notesWin);
+      dock.querySelector('.dock-item[data-action="go-install"]')?.classList.toggle("running", willOpen);
+    }
+
+    btnCloseNotes?.addEventListener("click", closeNotes);
+    btnMinNotes?.addEventListener("click", closeNotes);
+
+    btnMaxNotes?.addEventListener("click", () => {
+      if(!notesWin) return;
+      if(isMobile()) return;
+
+      const isMax = notesWin.dataset.max === "1";
+      if(!isMax){
+        notesWin.dataset.max = "1";
+        notesWin.style.left = "10px";
+        notesWin.style.top = "calc(var(--menuH) + var(--safeTop) + 10px)";
+        notesWin.style.transform = "none";
+        notesWin.style.width = "calc(100vw - 20px)";
+        notesWin.style.height = "calc(100vh - var(--menuH) - var(--dockH) - var(--safeBot) - 20px)";
+      } else {
+        notesWin.dataset.max = "0";
+        notesWin.removeAttribute("style");
+      }
+    });
+
+    let notesDrag = null;
+    notesBar?.addEventListener("pointerdown", (e) => {
+      if(isMobile()) return;
+      if(e.target.closest(".traffic, .dotbtn, button")) return;
+      if(notesWin?.dataset.max === "1") return;
+
+      bringFront(notesWin);
+      const rect = notesWin.getBoundingClientRect();
+      notesDrag = { startX: e.clientX, startY: e.clientY, baseL: rect.left, baseT: rect.top };
+      notesBar.setPointerCapture(e.pointerId);
+    });
+
+    notesBar?.addEventListener("pointermove", (e) => {
+      if(!notesDrag || !notesWin) return;
+      notesWin.style.left = (notesDrag.baseL + (e.clientX - notesDrag.startX)) + "px";
+      notesWin.style.top  = (notesDrag.baseT + (e.clientY - notesDrag.startY)) + "px";
+      notesWin.style.transform = "none";
+    });
+
+    notesBar?.addEventListener("pointerup", (e) => {
+      if(!notesDrag) return;
+      try{ notesBar.releasePointerCapture(e.pointerId); } catch {}
+      notesDrag = null;
+    });
+
+    $("#openAboutNote")?.addEventListener("click", () => {
+      notesWin?.classList.add("show");
+      bringFront(notesWin);
+      dock.querySelector('.dock-item[data-action="go-install"]')?.classList.add("running");
+    });
+
+    /* =========================
+       MUSIC APP
+       ========================= */
+    const musicWin = $("#musicWin");
+    const musicBar = $("#musicBar");
+
+    const btnCloseMusic = $("#btnCloseMusic");
+    const btnMinMusic   = $("#btnMinMusic");
+    const btnMaxMusic   = $("#btnMaxMusic");
+
+    const musicListEl   = $("#musicList");
+    const musicAudio    = $("#musicAudio");
+
+    const musicNowTitle = $("#musicNowTitle");
+    const musicNowSub   = $("#musicNowSub");
+
+    const musicPrevBtn  = $("#musicPrev");
+    const musicPlayBtn  = $("#musicPlay");
+    const musicNextBtn  = $("#musicNext");
+
+    const MUSIC_TRACKS = [
+      { title: "ultra v", src: "import/music/ultrav.mp3" },
+      { title: "Walzer", src: "import/music/walzer.mp3" },
+      { title: "générique", src: "import/music/generique80alicia.mp3" },
+      { title: "clavier sonore 2", src: "import/music/@alicia.srrs_on_instagram3.mp3" },
+      { title: "clavier sonore 3", src: "import/music/@alicia.srrs_on_instagram1.mp3" },
+      { title: "track rework", src: "import/music/ambiance.mp3" },
+      { title: "Sound édition Augmentée", src: "import/music/1_bip_1.wav" },
+    ];
+
+    let musicIdx = 0;
+    let musicIsPlaying = false;
+
+    let musicSelected = false; /* devient vrai quand on clique une piste */
+
+    const MC_ICO = {
+      prev:  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2.4v14H6zM20 5v14L9.5 12z"/></svg>',
+      play:  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15L19.5 12z"/></svg>',
+      pause: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h4v15h-4zM13.5 4.5h4v15h-4z"/></svg>',
+      next:  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.6 5H18v14h-2.4zM4 5v14l10.5-7z"/></svg>'
+    };
+
+    function renderMusicList(){
+      if(!musicListEl) return;
+      musicListEl.innerHTML = MUSIC_TRACKS.map((t, i) => {
+        const on = musicSelected && i === musicIdx;
+        const ctl = on ? `
+          <div class="mctl">
+            <button type="button" class="mc" data-act="prev" aria-label="Précédent">${MC_ICO.prev}</button>
+            <button type="button" class="mc" data-act="play" aria-label="${musicIsPlaying ? "Pause" : "Lecture"}">${musicIsPlaying ? MC_ICO.pause : MC_ICO.play}</button>
+            <button type="button" class="mc" data-act="next" aria-label="Suivant">${MC_ICO.next}</button>
+          </div>` : "";
+        return `
+          <div class="music-row ${on ? "active" : ""}" data-i="${i}">
+            <div class="finder-name">
+              <span class="t">${escapeHtml(t.title)}</span>
+              ${ctl}
+            </div>
+          </div>`;
+      }).join("");
+    }
+
+    function setNowPlaying(){
+      const t = MUSIC_TRACKS[musicIdx];
+      if(musicNowTitle) musicNowTitle.textContent = t ? t.title : "—";
+      if(musicNowSub)   musicNowSub.textContent   = t ? t.src : "—";
+    }
+
+    function loadTrack(i, autoplay = false){
+      if(!musicAudio) return;
+
+      musicIdx = (i + MUSIC_TRACKS.length) % MUSIC_TRACKS.length;
+      const t = MUSIC_TRACKS[musicIdx];
+
+      musicAudio.innerHTML = "";
+      const source = document.createElement("source");
+      source.src = t.src;
+      musicAudio.appendChild(source);
+
+      musicAudio.load();
+      setNowPlaying();
+      renderMusicList();
+
+      if(autoplay){
+        musicAudio.play().then(() => {
+          musicIsPlaying = true;
+          if(musicPlayBtn) musicPlayBtn.textContent = "⏸";
+          renderMusicList();
+        }).catch(()=>{});
+      } else {
+        musicIsPlaying = false;
+        if(musicPlayBtn) musicPlayBtn.textContent = "▶";
+      }
+    }
+
+    function syncMusicUI(){
+      if(!musicAudio) return;
+      musicIsPlaying = !musicAudio.paused && !!musicAudio.currentSrc;
+      if(musicPlayBtn) musicPlayBtn.textContent = musicIsPlaying ? "⏸" : "▶";
+      renderMusicList();
+    }
+
+    function togglePlay(){
+      if(!MUSIC_TRACKS.length || !musicAudio) return;
+
+      if(!musicAudio.currentSrc){
+        loadTrack(musicIdx, true);
+        return;
+      }
+      if(musicAudio.paused) musicAudio.play().catch(()=>{});
+      else musicAudio.pause();
+    }
+
+    musicAudio?.addEventListener("play",  syncMusicUI);
+    musicAudio?.addEventListener("pause", syncMusicUI);
+    musicAudio?.addEventListener("loadedmetadata", syncMusicUI);
+    musicAudio?.addEventListener("ended", () => loadTrack(musicIdx + 1, true));
+
+    musicListEl?.addEventListener("click", (e) => {
+      const btn = e.target.closest(".mc");
+      if(btn){
+        const act = btn.dataset.act;
+        if(act === "play") togglePlay();
+        else if(act === "next") loadTrack(musicIdx + 1, true);
+        else if(act === "prev") loadTrack(musicIdx - 1, true);
+        return;
+      }
+      const row = e.target.closest(".music-row");
+      if(!row) return;
+      const i = parseInt(row.dataset.i, 10);
+      if(musicSelected && i === musicIdx){ togglePlay(); return; }
+      musicSelected = true;
+      loadTrack(i, true);
+    });
+
+    musicPlayBtn?.addEventListener("click", togglePlay);
+    musicNextBtn?.addEventListener("click", () => loadTrack(musicIdx + 1, true));
+    musicPrevBtn?.addEventListener("click", () => loadTrack(musicIdx - 1, true));
+
+    function closeMusic(){
+      musicWin?.classList.remove("show");
+      dock.querySelector('.dock-item[data-action="link-1"]')?.classList.remove("running");
+    }
+
+    function toggleMusic(){
+      if(!musicWin) return;
+      const willOpen = !musicWin.classList.contains("show");
+      musicWin.classList.toggle("show", willOpen);
+      if(willOpen){
+        bringFront(musicWin);
+        if(musicAudio && !musicAudio.currentSrc) loadTrack(0, false);
+      }
+      dock.querySelector('.dock-item[data-action="link-1"]')?.classList.toggle("running", willOpen);
+    }
+
+    btnCloseMusic?.addEventListener("click", closeMusic);
+    btnMinMusic?.addEventListener("click", closeMusic);
+
+    btnMaxMusic?.addEventListener("click", () => {
+      if(!musicWin) return;
+      if(isMobile()) return;
+
+      const isMax = musicWin.dataset.max === "1";
+      if(!isMax){
+        musicWin.dataset.max = "1";
+        musicWin.style.left = "10px";
+        musicWin.style.top = "calc(var(--menuH) + var(--safeTop) + 10px)";
+        musicWin.style.transform = "none";
+        musicWin.style.width = "calc(100vw - 20px)";
+        musicWin.style.height = "calc(100vh - var(--menuH) - var(--dockH) - var(--safeBot) - 20px)";
+      } else {
+        musicWin.dataset.max = "0";
+        musicWin.removeAttribute("style");
+      }
+    });
+
+    let musicDrag = null;
+    musicBar?.addEventListener("pointerdown", (e) => {
+      if(isMobile()) return;
+      if(e.target.closest(".traffic, .dotbtn, button")) return;
+      if(musicWin?.dataset.max === "1") return;
+
+      bringFront(musicWin);
+      const rect = musicWin.getBoundingClientRect();
+      musicDrag = { startX: e.clientX, startY: e.clientY, baseL: rect.left, baseT: rect.top };
+      musicBar.setPointerCapture(e.pointerId);
+    });
+
+    musicBar?.addEventListener("pointermove", (e) => {
+      if(!musicDrag || !musicWin) return;
+      musicWin.style.left = (musicDrag.baseL + (e.clientX - musicDrag.startX)) + "px";
+      musicWin.style.top  = (musicDrag.baseT + (e.clientY - musicDrag.startY)) + "px";
+      musicWin.style.transform = "none";
+    });
+
+    musicBar?.addEventListener("pointerup", (e) => {
+      if(!musicDrag) return;
+      try{ musicBar.releasePointerCapture(e.pointerId); } catch {}
+      musicDrag = null;
+    });
+
+    /* =========================
+       DOCK ACTIONS
+       ========================= */
+    dock.addEventListener("click", (e) => {
+      const it = e.target.closest(".dock-item");
+      if(!it) return;
+
+      const action = it.dataset.action;
+
+      if(action === "reset"){
+        localStorage.removeItem(LS_POS);
+        positions = {};
+        renderDesktop();
+      }
+
+      if(action === "about"){
+        toggleTerm();
+      }
+
+      if(action === "link-1"){
+        toggleMusic();
+      }
+
+      if(action === "dj"){
+        const w = openWindows.get("dj-001");
+        if(w && w.classList.contains("show")){
+          w.classList.remove("show");
+          it.classList.remove("running");
+        } else {
+          openProjectWindow("dj-001");
+          it.classList.add("running");
+        }
+      }
+
+      if(action === "trash"){
+        alert("tu ne peux rien jeter ici");
+      }
+
+      if(action === "go-install"){
+        toggleNotes();
+      }
+    });
+
+    /* =========================
+       DJ AUDIO / SPIN
+       ========================= */
+    (function initDJInWindow(){
+      const djRoot = document.getElementById("djWin");
+      if(!djRoot) return;
+
+      const cdButtons = Array.from(djRoot.querySelectorAll("#dj-grid .cd"));
+      if(!cdButtons.length) return;
+
+      function getRotationDeg(el){
+        const tr = getComputedStyle(el).transform;
+        if(!tr || tr === "none") return 0;
+        const m = tr.match(/matrix\(([^)]+)\)/);
+        if(!m) return 0;
+        const [a, b] = m[1].split(",").map(v => parseFloat(v.trim()));
+        let angle = Math.atan2(b, a) * (180 / Math.PI);
+        if(angle < 0) angle += 360;
+        return angle;
+      }
+
+      const audioFiles = [
+        "import/audio/audio1.mp3",
+        "import/audio/audio2.mp3",
+        "import/audio/audio3.mp3",
+        "import/audio/audio4.mp3",
+        "import/audio/audio5.mp3",
+        "import/audio/audio6.mp3"
+      ];
+
+      let ac = null;
+      let buffers = [];
+      let gains = [];
+      let sources = [];
+      let djReady = false;
+      let loading = false;
+
+      function stopAllSources(){
+        try { sources.forEach(s => s && s.stop()); } catch {}
+        sources = [];
+      }
+
+      async function loadBuffer(url){
+        const res = await fetch(url, { cache: "no-store" });
+        if(!res.ok) throw new Error(`fetch failed ${res.status} for ${url}`);
+        const arr = await res.arrayBuffer();
+        return await ac.decodeAudioData(arr);
+      }
+
+      function startAllSynced(offsetSeconds = 0){
+        stopAllSources();
+        const when = ac.currentTime + 0.08;
+        buffers.forEach((buf, i) => {
+          const src = ac.createBufferSource();
+          src.buffer = buf;
+          src.loop = true;
+          src.connect(gains[i]);
+          src.start(when, offsetSeconds);
+          sources[i] = src;
+        });
+      }
+
+      function setTrackOn(i, on){
+        if(!gains[i]) return;
+        gains[i].gain.setTargetAtTime(on ? 1 : 0, ac.currentTime, 0.015);
+      }
+
+      function applyVolumesFromUI(){
+        cdButtons.forEach((btn, i) => {
+          setTrackOn(i, btn.classList.contains("is-spinning"));
+        });
+      }
+
+      async function ensureDJAudio(){
+        if(djReady || loading) return;
+        loading = true;
+
+        ac = new (window.AudioContext || window.webkitAudioContext)();
+
+        gains = audioFiles.map(() => {
+          const g = ac.createGain();
+          g.gain.value = 0;
+          g.connect(ac.destination);
+          return g;
+        });
+
+        buffers = await Promise.all(audioFiles.map(loadBuffer));
+        startAllSynced(0);
+        applyVolumesFromUI();
+
+        djReady = true;
+        loading = false;
+      }
+
+      cdButtons.forEach((btn) => {
+        btn.addEventListener("click", async (e) => {
+          e.preventDefault();
+
+          try{
+            await ensureDJAudio();
+            if(ac && ac.state === "suspended") await ac.resume();
+          } catch(err){
+            console.error("[DJ] audio init error:", err);
+            return;
+          }
+
+          const img = btn.querySelector("img");
+          if(!img) return;
+
+          const spinning = btn.classList.contains("is-spinning");
+
+          if(spinning){
+            const angle = getRotationDeg(img);
+            img.style.setProperty("--start-angle", `${angle}deg`);
+            img.style.animation = "none";
+            img.style.transform = `rotate(${angle}deg)`;
+            btn.classList.remove("is-spinning");
+          } else {
+            img.style.animation = "";
+            img.style.transform = "";
+            void img.offsetWidth;
+            btn.classList.add("is-spinning");
+          }
+
+          applyVolumesFromUI();
+        });
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        if(!djReady || !ac) return;
+        if(!document.hidden){
+          ac.resume().catch(()=>{});
+          startAllSynced(0);
+          applyVolumesFromUI();
+        }
+      });
+    })();
+
+    /* =========================
+       INIT
+       ========================= */
+    [infoWin, finderWin, djWin, termWin, notesWin, musicWin].forEach(win => {
+      if(!win) return;
+      win.addEventListener("pointerdown", () => bringFront(win));
+    });
+
+    renderDesktop();
+
+    let resizeT = null;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeT);
+      resizeT = setTimeout(() => {
+        applyMobileClass();
+        syncZBase();
+        renderDesktop();
+      }, 120);
+    });
+
+    window.addEventListener("orientationchange", () => {
+      setTimeout(() => {
+        applyMobileClass();
+        syncZBase();
+        renderDesktop();
+      }, 150);
+    });
+
+  </script>
+
+</body>
+</html>
