@@ -1,0 +1,369 @@
+@media (max-width: 768px){
+  html, body{
+    font-weight: 400;            /* ou 500 si tu veux plus “gras” */
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* si tu utilises une font custom, force aussi sur les boutons */
+  button, .tab, .filter{
+    font-weight: 400;
+  }
+
+  /* ton texte principal */
+  p, .infos, .cover-meta, .home__events__title{
+    font-weight: 400;
+  }
+}
+
+
+
+/* DESKTOP: on n'affiche pas les covers mobile */
+.project-cover{ display:none; }
+
+
+
+/* =========================================
+   MOBILE (<= 768px) — CLEAN (FIXED)
+   ========================================= */
+@media (max-width: 768px){
+  .project-cover{ display:block; }
+
+
+  /* neutralise le responsive desktop */
+  #work{
+    height:auto !important;
+    overflow:visible !important;
+    display:block !important;
+  }
+
+  #container{ padding: 10px !important; }
+
+  /* =========================
+     HEADER
+     ========================= */
+  #header{
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    background: #fff !important;
+    margin: 0 0 10px 0 !important;
+    display:flex !important;
+    align-items: baseline !important;
+    gap: 12px !important;
+  }
+
+  /* cache ce que tu ne veux pas */
+  #about-btn,
+  .header__burger,
+  .header__responsive{
+    display:none !important;
+  }
+
+  .top-tabs{
+    display:flex !important;
+    align-items: baseline !important;
+    gap: 14px !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .top-tabs .tab{
+    appearance:none;
+    border:0;
+    background:transparent;
+    padding:0;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1;
+    cursor:pointer;
+  }
+  .top-tabs .tab:not(.is-active){ color:#aaa; }
+  .top-tabs .tab.is-active{
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  .filters{
+    display:none; /* affiché via JS */
+    gap: 10px;
+    margin-left: 6px;
+    flex-wrap: wrap;
+  }
+  .filters .filter{
+    appearance:none;
+    border:0;
+    background:transparent;
+    padding:0;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1;
+    cursor:pointer;
+    color:#bbb;
+  }
+  .filters .filter.is-active{
+    color:#000;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  /* =========================
+     VUES
+     ========================= */
+  body.view-home #projects{ display:none !important; }
+  body.view-home #stage{ display:block !important; }
+
+  body.view-projects #stage{ display:none !important; }
+  body.view-projects #projects{ display:block !important; }
+
+  /* =========================
+     HOME (DJ)
+     ========================= */
+  #stage{
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+  }
+
+  #dj-intro{
+    margin: 14px 0 12px 0 !important;
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+    max-width: 44ch !important;
+  }
+
+  #dj-ui{
+    position: relative !important;
+    inset: auto !important;
+    display:block !important;
+    padding-right: 60px !important; /* place colonne droite */
+  }
+
+  #dj-top{
+    position: static !important;
+    width: auto !important;
+    transform:none !important;
+    margin: 0 0 10px 0 !important;
+    display:block !important;
+  }
+
+  /* “À toi de jouer” — vertical à droite */
+  #dj-title{
+    position: fixed !important;
+    right: 8px !important;
+    top: 34vh !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+    transform: rotate(90deg) !important;
+    transform-origin: right top !important;
+    z-index: 9998 !important;
+    pointer-events: none !important;
+  }
+
+  /* MUTE/PLAY — vertical à droite */
+  #sound-toggle{
+    position: fixed !important;
+    right: 8px !important;
+    top: 58vh !important;
+    z-index: 9998 !important;
+
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+
+    transform: rotate(90deg) !important;
+    transform-origin: right top !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+  }
+
+  /* pas de texte ajouté */
+  #sound-toggle::after{
+    content: none !important;
+  }
+
+  /* SVG bien visible */
+  #sound-toggle svg{
+    display: block !important;
+    width: 70px !important;   /* ajuste 60–90 si tu veux */
+    height: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* grille CDs */
+  #dj-grid{
+    transform:none !important;
+    padding: 0 !important;
+    display:grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 18px 18px !important;
+    justify-items: center !important;
+    align-content: start !important;
+  }
+
+  .cd{
+    width: min(46vw, 190px) !important;
+    max-width: 190px !important;
+  }
+
+  #dj-tooltip{ display:none !important; }
+  #images{ display:none !important; }
+
+  /* footer */
+  #links{
+    position: fixed !important;
+    left: 10px !important;
+    bottom: 10px !important;
+    z-index: 9997 !important;
+    margin: 0 !important;
+  }
+
+  #links .infos{
+    font-size: 14px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* projets */
+  #projects{
+    width: 100% !important;
+    margin-top: 10px !important;
+  }
+
+  .home__events__title{ font-size: 16px !important; }
+
+  .flex{ display:block !important; }
+  .description{ width: 100% !important; }
+
+  p.text__1, p.text__2{
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+
+  .images__responsive{
+    display:block !important;
+    width: 100% !important;
+    margin: 10px 0 12px 0 !important;
+  }
+
+  .images__responsive img,
+  .images__responsive video{
+    width: 100% !important;
+    height: auto !important;
+    display:block !important;
+    margin: 0 0 10px 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+/* ====== PROJECTS as COVERS (mobile) ====== */
+
+/* on masque la "liste" (les h3) sur mobile */
+body.view-projects .home__events__title{
+  display:none !important;
+}
+
+/* le panel est caché tant que non ouvert */
+body.view-projects .panel{
+  display:none !important;
+}
+body.view-projects .panel.active{
+  display:block !important;
+}
+
+/* cover bloc */
+.project-cover{
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  display: block;
+  cursor: pointer;
+  margin: 0 0 14px 0;
+}
+
+.project-cover .cover-media{
+  display:block;
+  width:100%;
+  aspect-ratio: 16 / 9;   /* ajuste si tu veux plus carré */
+  overflow:hidden;
+  background:#000;
+}
+
+.project-cover .cover-media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* texte sous la cover (ou tu peux le mettre en overlay si tu veux) */
+.project-cover .cover-meta{
+  display:flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 8px 0 0 0;
+  font-size: 16px;
+}
+
+.project-cover .cover-meta .categorie{
+  color:#777;
+}
+.project-cover .cover-meta .date{
+  margin-left:auto;
+  color:#777;
+}
+/* gros espace après un projet ouvert */
+body.view-projects .project-cover[aria-expanded="true"]{
+  margin-bottom: 30px !important;  /* espace entre cover et panel (optionnel) */
+}
+
+/* espace sous le contenu déployé avant le prochain projet */
+body.view-projects .panel.active{
+  margin-bottom: 60px !important;  /* <-- augmente ici si tu veux encore plus */
+  padding-bottom: 0 !important;
+}
+.project-cover .cover-media{
+  display:block;
+  width:100%;
+  aspect-ratio: 16 / 9;
+  overflow:hidden;
+  background:#000;
+}
+
+/* ✅ vidéo miniature */
+.project-cover .cover-media .cover-video{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* option : enlever toute interaction sur la vidéo (clic = bouton) */
+.project-cover .cover-media .cover-video{
+  pointer-events:none;
+}
+
+  /* ... tes règles ... */
+
+  /* ✅ Sur Projets : on cache le bouton mute/play (et éventuellement le titre) */
+  body.view-projects #sound-toggle,
+  body.view-projects #dj-title{
+    display: none !important;
+  }
+
+  /* ✅ Sur Home : on les affiche */
+  body.view-home #sound-toggle,
+  body.view-home #dj-title{
+    display: inline-flex !important;
+  }
+}
+
+
+}
