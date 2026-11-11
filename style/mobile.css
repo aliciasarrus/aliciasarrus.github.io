@@ -1,7 +1,5 @@
 /* ==========================================================
 MOBILE
-(chargé après style.css : tout est préfixé html.is-mobile,
-le desktop n'est pas touché)
 ========================================================== */
 
 /* Le bloc texte mobile existe dans le HTML mais reste caché sur desktop */
@@ -13,10 +11,13 @@ html.is-mobile .desktop{
   overscroll-behavior: none;
 }
 html.is-mobile .icon{
-  touch-action: manipulation;
+  touch-action: none;               /* permet de déplacer l'icône au doigt */
+  -webkit-user-select: none;
+  user-select: none;
   padding: 3px 2px;
   gap: 4px;
 }
+html.is-mobile .icon.is-dragging{ z-index: 9999; opacity: .85; }
 html.is-mobile .icon .thumb{
   width: var(--ts, 52px);
   height: var(--ts, 52px);
@@ -114,6 +115,20 @@ html.is-mobile .projectWin .pmedia .slide img{
   object-fit: contain !important;
 }
 
+/* images « fill » (celles sans bords noirs sur desktop) : le cadre est rempli, recadrage au centre */
+html.is-mobile .projectWin .pmedia .slide.fill:has(> img){
+  position: relative !important;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+html.is-mobile .projectWin .pmedia .slide.fill > img{
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
 /* vidéos : au bon format (--ar est mesuré par le lecteur Vimeo) */
 html.is-mobile .projectWin .pmedia .video{
   width: 100% !important;
@@ -150,3 +165,6 @@ html.is-mobile .projectWin .pmedia .slide.dj-slide{
   height: min(70dvh, 520px) !important;
   display: block !important;
 }
+
+/* DJ CD : fond blanc (et non noir) */
+html.is-mobile .projectWin .pmedia .slide.dj-slide{ background: #fff !important; }
