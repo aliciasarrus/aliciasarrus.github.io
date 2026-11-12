@@ -168,3 +168,10 @@ html.is-mobile .projectWin .pmedia .slide.dj-slide{
 
 /* DJ CD : fond blanc (et non noir) */
 html.is-mobile .projectWin .pmedia .slide.dj-slide{ background: #fff !important; }
+
+/* Dock : l'icône « reset » (triangle) était trop zoomée dans son carré → on la montre en entier, avec un peu d'air */
+html.is-mobile .dock-item[data-action="reset"] .dock-img{
+  box-sizing: border-box;
+  padding: 7px;
+  object-fit: contain !important;
+}
